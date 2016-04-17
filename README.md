@@ -1,4 +1,9 @@
-https://codeship.com/projects/88a9e590-e6f6-0133-81da-0eb548e23054/status?branch=master
+![Build Status](https://codeship.com/projects/88a9e590-e6f6-0133-81da-0eb548e23054/status?branch=master)
+
+[![Code Climate](https://codeclimate.com/github/Salisbum/brewop/badges/gpa.svg)](https://codeclimate.com/github/Salisbum/brewop)
+
+![Coverage Status]()
+
 
 # BrewOp
 
