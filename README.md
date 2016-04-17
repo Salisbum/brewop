@@ -2,8 +2,7 @@
 
 [![Code Climate](https://codeclimate.com/github/Salisbum/brewop/badges/gpa.svg)](https://codeclimate.com/github/Salisbum/brewop)
 
-![Coverage Status]()
-
+[![Coverage Status](https://coveralls.io/repos/github/Salisbum/brewop/badge.svg?branch=master)](https://coveralls.io/github/Salisbum/brewop?branch=master)
 
 # BrewOp
 

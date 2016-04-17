@@ -13,10 +13,11 @@ gem 'foundation-rails'
 group :development, :test do
   gem 'byebug'
   gem 'capybara'
-  gem 'web-console', '~> 2.0'
   gem 'rspec-rails', '~> 3.0'
   gem 'spring'
   gem 'pry-rails'
   gem 'launchy'
   gem 'database_cleaner'
 end
+
+gem 'web-console', group: :development
