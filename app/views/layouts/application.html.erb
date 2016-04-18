@@ -26,9 +26,6 @@
           <% if user_signed_in? %>
             <li>Welcome, <%= current_user.email %> </li>
             <li>
-              <%= link_to('Recipes', recipes_path) %>
-            </li>
-            <li>
               <%= link_to('Logout', destroy_user_session_path, :method => :delete, class: "color-white") %>
             </li>
           <% end %>
