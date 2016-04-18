@@ -26,7 +26,7 @@
           <% if user_signed_in? %>
             <li>Welcome, <%= current_user.email %> </li>
             <li>
-                <%= link_to('Recipes', recipes_path) %>
+              <%= link_to('Recipes', recipes_path) %>
             </li>
             <li>
               <%= link_to('Logout', destroy_user_session_path, :method => :delete, class: "color-white") %>
@@ -49,6 +49,12 @@
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
       <%= yield %>
+    </div>
+
+    <div class="footer">
+      <ul class="menu">
+        <li><a href="/pages/about">About</a></li>
+      </ul>
     </div>
   </body>
 </html>
