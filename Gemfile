@@ -23,3 +23,5 @@ group :development, :test do
 end
 
 gem 'web-console', group: :development
+
+gem 'rails_12factor', group: :production
