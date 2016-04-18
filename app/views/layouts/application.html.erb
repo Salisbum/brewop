@@ -7,14 +7,48 @@
     <title><%= content_for?(:title) ? yield(:title) : "BrewOp" %></title>
 
     <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <div class="top-bar">
+      <div class ="top-bar-left">
+        <ul class="menu">
+          <li>
+            <a href="/"><h1>BrewOp</h1></a>
+          </li>
+        </ul>
+      </div>
 
+      <div class="top-bar-right">
+        <ul class="menu">
+          <% if user_signed_in? %>
+            <li>Welcome, <%= current_user.email %> </li>
+            <li>
+                <%= link_to('Recipes', recipes_path) %>
+            </li>
+            <li>
+              <%= link_to('Logout', destroy_user_session_path, :method => :delete, class: "color-white") %>
+            </li>
+          <% end %>
+
+          <% if !user_signed_in? %>
+            <li>
+                <%= link_to('Sign Up', new_user_registration_path, class: "color-white")  %>
+            </li>
+            <li>
+              <%= link_to('Login', new_user_session_path, class: "color-white")  %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <%= yield %>
+    </div>
   </body>
 </html>
