@@ -5,7 +5,7 @@ feature "User edits account" do
 
   scenario "user navigates to edit account page" do
     default_login
-    
+
     click_on "Account"
 
     expect(page).to have_content("Cancel my account")
@@ -27,7 +27,7 @@ feature "User edits account" do
 
     click_on "Account"
 
-    fill_in "Password", with: '11111111'
+    fill_in "Password", with: "11111111"
     fill_in "Password confirmation", with: "11"
     fill_in "Current password", with: "12345678"
     click_on "Update"

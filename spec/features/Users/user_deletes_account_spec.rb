@@ -18,7 +18,7 @@ feature "User deletes account" do
 
     click_on "Cancel my account"
 
-    expect(page).to have_content("Bye! Your account has been successfully cancelled. We hope to see you again soon")
+    expect(page).to have_content("Bye! Your account has been successfully cancelled.")
   end
 
   scenario "user attempts to log in with deleted account" do
