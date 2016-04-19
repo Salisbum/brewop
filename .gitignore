@@ -15,7 +15,6 @@
 /config/database.yml
 /config/secret_token.rb
 /coverage
-.coveralls.yml
 .DS_Store
 
 /public/uploads
