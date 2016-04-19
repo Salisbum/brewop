@@ -19,7 +19,13 @@ group :development, :test do
   gem 'spring'
   gem 'pry-rails'
   gem 'launchy'
-  gem 'database_cleaner'
+  gem 'factory_girl_rails'
 end
 
 gem 'web-console', group: :development
+
+gem 'database_cleaner', group: :test
+
+group :test do
+  gem 'coveralls', require: false
+end
