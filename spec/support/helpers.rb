@@ -1,6 +1,6 @@
 def default_login
   user = FactoryGirl.create(:user)
-  FactoryGirl.create(:profile, user: user)
+
   visit root_url
 
   click_on "Login"
@@ -11,7 +11,6 @@ def default_login
 end
 
 def login(user)
-  FactoryGirl.create(:profile, user: user)
   visit root_url
 
   click_on "Login"
