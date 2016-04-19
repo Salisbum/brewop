@@ -1,6 +1,5 @@
-require 'coveralls'
-require 'database_cleaner'
-
+require "database_cleaner"
+require "coveralls"
 Coveralls.wear!('rails')
 
 require File.expand_path("../../config/environment", __FILE__)

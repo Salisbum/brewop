@@ -3,18 +3,18 @@ def default_login
   FactoryGirl.create(:profile, user: user)
   visit root_url
 
-  click_on 'Login'
+  click_on "Login"
 
-  fill_in 'Email', with: user.email
-  fill_in 'Password', with: user.password
-  click_on 'Log in'
+  fill_in "Email", with: user.email
+  fill_in "Password", with: user.password
+  click_on "Log in"
 end
 
 def login(user)
   FactoryGirl.create(:profile, user: user)
   visit root_url
 
-  click_on 'Login'
+  click_on "Login"
 
   fill_in "Email", with: user.email
   fill_in "Password", with: user.password
@@ -27,9 +27,9 @@ def admin_login
 
   visit root_url
 
-  click_on 'Login'
+  click_on "Login"
 
-  fill_in 'Email', with: user.email
-  fill_in 'Password', with: user.password
-  click_on 'Log in'
+  fill_in "Email", with: user.email
+  fill_in "Password", with: user.password
+  click_on "Log in"
 end
