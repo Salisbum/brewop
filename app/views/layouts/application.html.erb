@@ -26,6 +26,9 @@
           <% if user_signed_in? %>
             <li>Welcome, <%= current_user.email %> </li>
             <li>
+              <%= link_to('Recipes', recipes_path) %>
+            </li>
+            <li>
               <%= link_to('Account', edit_user_registration_path) %>
             </li>
             <li>
@@ -54,6 +57,8 @@
     <div class="footer">
       <ul class="menu">
         <li><a href="/pages/about">About</a></li>
+        <li><a href="/pages/feedback">Feedback</a></li>
+        <li><a href="/pages/brewbies">Brewbies</a></li>
       </ul>
     </div>
   </body>

@@ -28,4 +28,6 @@ gem 'database_cleaner', group: :test
 
 group :test do
   gem 'coveralls', require: false
+  gem 'orderly'
+  gem 'pry-byebug'
 end

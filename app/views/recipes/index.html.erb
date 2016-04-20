@@ -1,0 +1,17 @@
+<h1>Recipes</h1>
+
+<div class="container">
+  <%= link_to "Add New Recipe", new_recipe_path %>
+</div>
+
+<div class="container">
+  <% if @recipes.empty? %>
+    No recipes yet!
+    <% else %>
+      <div id="menu">
+        <% @recipes.each do |recipe| %>
+          <li><%= link_to recipe.name, recipe_path(recipe) %></li>
+        <% end %>
+      </div>
+  <% end %>
+</div>
