@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
     @comment.user = current_user
 
     if @comment.save
-      flash[:notice] = 'Comment saved!'
+      flash[:notice] = "Comment saved!"
     else
       flash[:alert] = "Comment not saved! #{@comment.errors.full_messages.join ', '}."
     end
@@ -39,11 +39,10 @@ class CommentsController < ApplicationController
       else
         flash[:alert] = "Comment not saved! #{@comment.errors.full_messages.join ', '}."
       end
-      redirect_to recipe_path(recipe)
     else
       flash[:notice] = "You cannot edit this comment."
-      redirect_to recipe_path(recipe)
     end
+    redirect_to recipe_path(recipe)
   end
 
   private

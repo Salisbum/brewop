@@ -4,8 +4,8 @@ megan = User.create(
 )
 
 tester = User.create(
-email: "megan.a.salisbury+tester@gmail.com",
-password: "megaderp"
+  email: "megan.a.salisbury+tester@gmail.com",
+  password: "megaderp"
 )
 
 recipe = Recipe.create(
