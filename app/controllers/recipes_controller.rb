@@ -11,7 +11,6 @@ class RecipesController < ApplicationController
   def create
     @recipe = Recipe.new(recipe_params)
     @recipe.user = current_user
-    @recipe.beer_type = params[:beer_type]
 
     if @recipe.save
       flash[:notice] = "Recipe added successfully!"
@@ -59,7 +58,7 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:name, :ingredients, :brewing_instructions, :description)
+    params.require(:recipe).permit(:name, :ingredients, :brewing_instructions, :description, :beer_type)
   end
 
   def recipe
