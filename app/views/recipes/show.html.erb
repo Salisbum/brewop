@@ -1,0 +1,49 @@
+<h1> <%= @recipe.name %> </h1>
+
+<div class="container">
+  Added: <%= @recipe.created_at %>
+</div>
+
+<div class="container">
+  Last Updated: <%= @recipe.updated_at %>
+</div>
+
+<div class="container">
+<% if current_user == @recipe.user || current_user.admin? %>
+  <%= button_to "Edit", edit_recipe_path(@recipe), class:"button", method:"get" %>
+<% end %>
+</div>
+
+<div class="details">
+  <h2>Beer Type</h2>
+  <div class="details" id="details">
+    <%= @recipe.beer_type %>
+  </div>
+</div>
+
+<div class="details">
+  <h2>Description</h2>
+  <div class="details" id="details">
+    <%= @recipe.description %>
+  </div>
+</div>
+
+<div class="details">
+  <h2>Ingredients</h2>
+  <div class="details" id="details">
+    <%= @recipe.ingredients %>
+  </div>
+</div>
+
+<div class="details">
+  <h2>Brewing Instructions</h2>
+  <div class="details" id="details">
+    <%= @recipe.brewing_instructions %>
+  </div>
+</div>
+
+<div class="container">
+<% if current_user == @recipe.user || current_user.admin? %>
+  <%= button_to "Delete", recipe_path(@recipe), class:"button", method:"delete" %>
+<% end %>
+</div>

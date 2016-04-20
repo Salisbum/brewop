@@ -19,11 +19,22 @@
  @import 'settings';
  @import 'foundation';
 
- .footer *{
- position:fixed;
- bottom:0;
- background-color: $quaternary;
- padding-bottom: 25px;
- padding-top: 15px;
- padding-right: 100%;
- }
+.footer {
+  background-color: $quaternary;
+  margin-bottom: 0;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+  }
+
+#menu {
+
+}
+
+.details {
+  font-size: 50%;
+}
+
+#details {
+  font-size: 16px;
+}
