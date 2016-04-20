@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get "/pages/:page" => "pages#show"
 
   authenticate :user do
-    resources :recipes
+    resources :recipes do
+      resources :comments
+    end
   end
 end

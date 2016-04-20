@@ -14,4 +14,10 @@ FactoryGirl.define do
     ingredients "So many ingredients!"
     brewing_instructions "So many instructions!"
   end
+
+  factory :comment do
+    user
+    recipe
+    sequence(:body) { |n| "#{n} comment, fo shizzle." }
+  end
 end

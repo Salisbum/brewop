@@ -1,0 +1,6 @@
+<%= form_for [@recipe, @comment] do |f| %>
+  <%= f.label :body, "Comment: " %>
+  <%= f.text_area :body %>
+
+  <%= f.submit "Submit Comment", class: "button" %>
+<% end %>
