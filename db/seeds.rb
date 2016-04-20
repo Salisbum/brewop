@@ -3,6 +3,11 @@ megan = User.create(
   password: "megaderp"
 )
 
+tester = User.create(
+  email: "megan.a.salisbury+tester@gmail.com",
+  password: "megaderp"
+)
+
 recipe = Recipe.create(
   user: megan,
   name: "Nice IPA",
@@ -12,11 +17,6 @@ recipe = Recipe.create(
   description: "Very tasty."
 )
 
-tester = User.create(
-  email: "megan.a.salisbury+tester@gmail.com",
-  password: "megaderp"
-)
-
 recipe2 = Recipe.create(
   user: tester,
   name: "Tasty Belgian",
@@ -24,4 +24,16 @@ recipe2 = Recipe.create(
   ingredients: "Cardamom, orange peel, coriander.",
   brewing_instructions: "Steep the peel, coriander, and cardamom in a muslin bag in the wort.",
   description: "Very wheaty."
+)
+
+comment = Comment.create(
+  user: megan,
+  recipe: recipe,
+  body: "So good, very hoppy."
+)
+
+comment = Comment.create(
+  user: tester,
+  recipe: recipe2,
+  body: "Came out alright, needs more Cascadia hops."
 )

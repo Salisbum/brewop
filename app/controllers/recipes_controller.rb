@@ -24,6 +24,8 @@ class RecipesController < ApplicationController
 
   def show
     recipe
+    @comment = Comment.new
+    @comments = @recipe.comments.order("created_at DESC")
   end
 
   def edit
