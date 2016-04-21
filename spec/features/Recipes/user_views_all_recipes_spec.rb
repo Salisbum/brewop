@@ -21,6 +21,7 @@ feature "authenticated user views all recipes" do
 
   scenario "authenticated user can view all of their recipes in alphabetical order" do
     user = FactoryGirl.create(:user)
+    FactoryGirl.create(:profile, user: user)
     recipe = FactoryGirl.create(:recipe, user: user)
     recipe2 = FactoryGirl.create(:recipe, user: user)
     recipe3 = FactoryGirl.create(:recipe, user: user)
@@ -36,6 +37,7 @@ feature "authenticated user views all recipes" do
 
   scenario "authenticated user cannot view other users' recipes" do
     user = FactoryGirl.create(:user)
+    FactoryGirl.create(:profile, user: user)
     recipe = FactoryGirl.create(:recipe, user: user)
     recipe2 = FactoryGirl.create(:recipe, user: user)
     recipe3 = FactoryGirl.create(:recipe, user: user)

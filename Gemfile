@@ -11,6 +11,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'foundation-rails'
 gem 'devise'
 gem 'faker'
+gem 'carrierwave', '~> 0.10.0'
+gem 'mini_magick', '~> 4.3'
+gem 'fog'
 
 group :development, :test do
   gem 'byebug'
@@ -23,6 +26,10 @@ group :development, :test do
 end
 
 gem 'web-console', group: :development
+
+group :development, :test do
+  gem "dotenv-rails"
+end
 
 gem 'database_cleaner', group: :test
 

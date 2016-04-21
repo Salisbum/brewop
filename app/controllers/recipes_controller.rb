@@ -1,6 +1,7 @@
 class RecipesController < ApplicationController
   def index
     @recipes = current_user.recipes.order(:name)
+    @admin_recipes = Recipe.all.order(:name)
   end
 
   def new
@@ -49,8 +50,10 @@ class RecipesController < ApplicationController
 
   def destroy
     recipe
+    comments = recipe.comments
     if current_user == @recipe.user || current_user.admin?
       if @recipe.destroy
+        comments.each { |comment| comment.destroy }
         flash[:notice] = "Recipe deleted successfully"
       end
       redirect_to recipes_path
@@ -64,7 +67,7 @@ class RecipesController < ApplicationController
   end
 
   def recipe
-  @recipe ||= Recipe.find(params[:id])
+    @recipe ||= Recipe.find(params[:id])
   end
 
 end

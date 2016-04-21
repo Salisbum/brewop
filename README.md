@@ -19,7 +19,7 @@ BrewOp is an app for you to manage your homebrewing recipes and help you with th
 ## ER Diagrams
 ![planned base](https://www.dropbox.com/s/3cxa48sulnm2n6e/Screen%20Shot%202016-04-10%20at%2011.18.01.png?dl=1)
 
-![planned future](https://www.dropbox.com/s/4s3hs5bdnyuvkgy/Screen%20Shot%202016-04-15%20at%2009.46.28.png?dl=1)
+![planned future](https://www.dropbox.com/s/uaexw06bcd2pd64/Screen%20Shot%202016-04-20%20at%2014.56.25.png?dl=1)
 
 ## Features
 * CRUD Recipes

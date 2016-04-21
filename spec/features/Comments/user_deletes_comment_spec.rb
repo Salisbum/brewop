@@ -12,6 +12,7 @@ Acceptance Criteria
 feature "User deletes a comment" do
   scenario "User deletes a comment" do
     user = FactoryGirl.create(:user)
+    FactoryGirl.create(:profile, user: user)
     recipe = FactoryGirl.create(:recipe, user: user)
     comment = FactoryGirl.create(:comment, user: user, recipe: recipe)
 

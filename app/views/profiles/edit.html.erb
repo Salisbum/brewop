@@ -1,0 +1,22 @@
+<h3>Edit Profile</h3>
+
+<%= form_for @profile do |f| %>
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+
+  <%= f.label :location %>
+  <%= f.text_field :location %>
+
+  <%= f.label :brewop_name, "Brewop Name" %>
+  <%= f.text_area :brewop_name %>
+
+    <%= f.label :avatar_url %><br>
+    <%= f.file_field :avatar_url %>
+    <% if f.object.avatar_url? %>
+      <%= image_tag f.object.avatar_url.thumb.url %>
+      <%= f.label :remove_avatar_url %>
+      <%= f.check_box :remove_avatar_url %>
+    <% end %>
+
+  <%= f.submit "Update Profile" %>
+<% end %>

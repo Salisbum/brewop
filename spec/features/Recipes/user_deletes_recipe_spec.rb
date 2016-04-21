@@ -14,6 +14,7 @@ Acceptance Criteria
 feature "authenticated user deletes recipe" do
   scenario "authenticated user successfully deletes recipe" do
     user = FactoryGirl.create(:user)
+    FactoryGirl.create(:profile, user: user)
     recipe = FactoryGirl.create(:recipe, user: user)
     recipe2 = FactoryGirl.create(:recipe, user: user)
     recipe3 = FactoryGirl.create(:recipe, user: user)
