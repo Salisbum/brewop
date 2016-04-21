@@ -9,6 +9,19 @@ tester = User.create(
   password: "megaderp"
 )
 
+Profile.create(
+  username: "Admin",
+  location: "Boston, MA",
+  user: user_admin
+)
+
+Profile.create(
+  username: "Tester",
+  location: "Boston, MA",
+  user: tester
+)
+
+
 recipe = Recipe.create(
   user: tester,
   name: "Nice IPA",
