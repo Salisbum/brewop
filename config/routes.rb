@@ -10,4 +10,6 @@ Rails.application.routes.draw do
       resources :comments
     end
   end
+
+  resources :profiles
 end

@@ -14,6 +14,7 @@ Acceptance Criteria
 feature "User edits a comment on a recipe" do
   scenario "User correctly edits a comment on a recipe" do
     user = FactoryGirl.create(:user)
+    FactoryGirl.create(:profile, user: user)
     recipe = FactoryGirl.create(:recipe, user: user)
     comment = FactoryGirl.create(:comment, user: user, recipe: recipe)
 
@@ -35,6 +36,7 @@ feature "User edits a comment on a recipe" do
 
   scenario "User incorrectly edits a comment on a recipe" do
     user = FactoryGirl.create(:user)
+    FactoryGirl.create(:profile, user: user)
     recipe = FactoryGirl.create(:recipe, user: user)
     comment = FactoryGirl.create(:comment, user: user, recipe: recipe)
 

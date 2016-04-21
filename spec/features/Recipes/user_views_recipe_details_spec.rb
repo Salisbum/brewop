@@ -16,6 +16,7 @@ Acceptance Criteria
 feature "authenticated user views recipe details" do
   scenario "authenticated user can view recipe details" do
     user = FactoryGirl.create(:user)
+    FactoryGirl.create(:profile, user: user)
     recipe = FactoryGirl.create(:recipe, user: user)
 
     login(user)

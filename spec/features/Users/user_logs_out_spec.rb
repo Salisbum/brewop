@@ -2,8 +2,7 @@ require "rails_helper"
 
 feature "User logs out" do
   scenario "user successfully logs out" do
-    user = FactoryGirl.create(:user)
-    login(user)
+    default_login
 
     expect(page).to have_content("Logout")
     expect(page).to_not have_content("Login")

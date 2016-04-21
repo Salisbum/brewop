@@ -1,0 +1,22 @@
+<div class="profile_options">
+  ​
+  <div class="edit_profile">
+    <%= link_to "Edit Profile", edit_profile_path %>
+  </div>
+  ​
+  <div class="edit_registration">
+    <%= link_to('Edit Account Information', edit_user_registration_path) %>
+  </div>
+  ​
+  <div class="title">
+    <h3>Your Profile!</h3>
+  </div>
+
+</div>
+
+
+  <p><%= image_tag "#{@profile.avatar_url.thumb.url}" %></p>
+  <p>Username: <%= @profile.username %></p>
+  <p>Email: <%= @user.email %></p>
+  <p>Brewop Name: <%= @profile.brewop_name %></p>
+  <p>Location: <%= @profile.location %></p>

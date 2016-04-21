@@ -1,20 +1,23 @@
 require "rails_helper"
 
 feature "User deletes account" do
-  let!(:user) { FactoryGirl.create(:user) }
 
   scenario "user navigates to edit account page" do
     default_login
 
     click_on "Account"
 
+    click_on "Edit Account Information"
+
     expect(page).to have_content("Cancel my account")
   end
 
   scenario "user deletes their own account" do
-    login(user)
+    default_login
 
     click_on "Account"
+    
+    click_on "Edit Account Information"
 
     click_on "Cancel my account"
 
@@ -25,6 +28,8 @@ feature "User deletes account" do
     default_login
 
     click_on "Account"
+
+    click_on "Edit Account Information"
 
     click_on "Cancel my account"
 

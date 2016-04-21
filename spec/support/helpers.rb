@@ -1,5 +1,6 @@
 def default_login
   user = FactoryGirl.create(:user)
+  FactoryGirl.create(:profile, user: user)
 
   visit root_url
 

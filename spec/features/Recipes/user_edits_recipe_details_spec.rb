@@ -14,6 +14,7 @@ Acceptance Criteria
 feature "authenticated user edits recipe details" do
   scenario "authenticated user correctly edits recipe details" do
     user = FactoryGirl.create(:user)
+    FactoryGirl.create(:profile, user: user)
     recipe = FactoryGirl.create(:recipe, user: user)
 
     login(user)
@@ -36,6 +37,7 @@ feature "authenticated user edits recipe details" do
 
   scenario "authenticated user incorrectly edits recipe details" do
     user = FactoryGirl.create(:user)
+    FactoryGirl.create(:profile, user: user)
     recipe = FactoryGirl.create(:recipe, user: user)
 
     login(user)

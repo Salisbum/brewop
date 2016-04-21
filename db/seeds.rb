@@ -1,6 +1,15 @@
-megan = User.create(
-  email: "megan.a.salisbury@gmail.com",
-  password: "megaderp"
+user_admin = User.create(
+  email: "megan.a.salisbury+admin@gmail.com",
+  password: "megaderp",
+  role: "admin"
+)
+
+Profile.create(
+  username: "Admin",
+  location: "Boston, MA",
+  avatar_url: "https://i.ytimg.com/vi/sUOifHlxGiw/hqdefault.jpg",
+  brewop_name: "Brewmin",
+  user: user_admin
 )
 
 tester = User.create(
@@ -8,8 +17,16 @@ tester = User.create(
   password: "megaderp"
 )
 
+Profile.create(
+  username: "Herpina",
+  location: "NY, NY",
+  avatar_url: "http://shewearsmanyhats.com/wp-content/uploads/2013/07/dipped-ice-cream-cones-7.jpg",
+  brewop_name: "TestOp",
+  user: tester
+)
+
 recipe = Recipe.create(
-  user: megan,
+  user: tester,
   name: "Nice IPA",
   beer_type: "IPA",
   ingredients: "Rye, 1/4 pound. Barley, 1/2 pound.",
@@ -27,7 +44,7 @@ recipe2 = Recipe.create(
 )
 
 comment = Comment.create(
-  user: megan,
+  user: tester,
   recipe: recipe,
   body: "So good, very hoppy."
 )
