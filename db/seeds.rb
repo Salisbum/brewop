@@ -4,25 +4,9 @@ user_admin = User.create(
   role: "admin"
 )
 
-Profile.create(
-  username: "Admin",
-  location: "Boston, MA",
-  avatar_url: "https://i.ytimg.com/vi/sUOifHlxGiw/hqdefault.jpg",
-  brewop_name: "Brewmin",
-  user: user_admin
-)
-
 tester = User.create(
   email: "megan.a.salisbury+tester@gmail.com",
   password: "megaderp"
-)
-
-Profile.create(
-  username: "Herpina",
-  location: "NY, NY",
-  avatar_url: "http://shewearsmanyhats.com/wp-content/uploads/2013/07/dipped-ice-cream-cones-7.jpg",
-  brewop_name: "TestOp",
-  user: tester
 )
 
 recipe = Recipe.create(
