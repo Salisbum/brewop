@@ -12,3 +12,21 @@
 <% else %>
   You do not have permission to view this page.
 <% end %>
+
+
+<h2>Recipes Index</h2>
+
+<% if current_user.admin? %>
+<h1>All Recipes in App</h1>
+  <% if @admin_recipes.nil? %>
+    No users have submitted recipes yet!
+    <% else %>
+      <div id="menu">
+        <% @admin_recipes.each do |recipe| %>
+          <li><%= link_to recipe.name, recipe_path(recipe) %></li>
+        <% end %>
+      </div>
+  <% end %>
+<% else %>
+  You do not have permission to view this page.
+<% end %>

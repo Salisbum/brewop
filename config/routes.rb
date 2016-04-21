@@ -3,10 +3,12 @@ Rails.application.routes.draw do
 
   root "pages#show", page: "home"
 
-  get "/pages/:page" => "pages#show"
+  get "/pages/:page", to: "pages#show"
 
   authenticate :user do
     resources :profiles
+
+    get "/admin/:page", to: "admins#show"
 
     resources :recipes do
       resources :comments
