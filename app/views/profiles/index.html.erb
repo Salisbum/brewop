@@ -5,7 +5,7 @@
     There are no profiles to display.
   <% else %>
     <% @profiles.each do |profile| %>
-      <%= profile.user.email %>,
+      User: <%= profile.user.id %> | Profile: <%= profile.id %>: <%= profile.user.email %>
       <%= button_to "Delete", profile_path(profile), class:"button", method: "delete" %>
     <% end %>
   <% end %>

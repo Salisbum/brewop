@@ -2,7 +2,7 @@ class ProfilesController < ApplicationController
   before_action :authorize_user, only: [:index]
 
   def index
-    @profiles = Profile.all
+    @profiles = Profile.all.order("created_at ASC")
   end
 
   def show
@@ -68,14 +68,6 @@ class ProfilesController < ApplicationController
   def authorize_user
     if !current_user.admin?
       redirect_to root_path
-    end
-  end
-
-  def access
-    profile = Profile.find(params[:id])
-    user = profile.user
-    if current_user != user || !current_user.admin?
-      flash[:alert] = "BOOOM"
     end
   end
 end
