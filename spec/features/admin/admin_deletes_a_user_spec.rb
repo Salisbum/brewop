@@ -10,11 +10,9 @@ feature "Admin visits users index" do
 
     admin_login
 
-    click_link "Recipes"
-
-    expect(page).to have_content recipe.name
-
     click_link "Admin Dashboard"
+
+    click_link "User List"
 
     expect(page).to have_content user1.email
 
@@ -33,7 +31,7 @@ feature "Admin visits users index" do
 
     login(user1)
 
-    visit profiles_path
+    visit "/admin/users"
 
     expect(page).to_not have_content user1.email
     expect(page.current_path).to eq root_path

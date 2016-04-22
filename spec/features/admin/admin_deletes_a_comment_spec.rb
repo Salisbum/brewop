@@ -10,7 +10,9 @@ feature "Admin deletes a comment" do
 
     admin_login
 
-    click_link "Recipes"
+    click_link "Admin Dashboard"
+
+    click_link "All Recipes"
 
     click_link recipe.name
 

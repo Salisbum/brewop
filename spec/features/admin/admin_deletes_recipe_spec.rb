@@ -9,7 +9,9 @@ feature "Admin deletes a recipe" do
 
     admin_login
 
-    click_link "Recipes"
+    click_link "Admin Dashboard"
+
+    click_link "All Recipes"
 
     expect(page).to have_content recipe.name
 

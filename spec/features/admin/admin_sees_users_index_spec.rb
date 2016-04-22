@@ -12,6 +12,8 @@ feature "Admin visits users index" do
 
     click_link "Admin Dashboard"
 
+    click_link "User List"
+
     expect(page).to have_content user1.email
     expect(page).to have_content user2.email
   end
