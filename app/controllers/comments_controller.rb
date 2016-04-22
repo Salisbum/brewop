@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_action :authorize_user, only: [:edit]
+
   def create
     @comment = Comment.new(comment_params)
     @comment.recipe = recipe
@@ -22,11 +24,16 @@ class CommentsController < ApplicationController
     else
       flash[:notice] = "You cannot delete this comment."
     end
-    redirect_to recipe_path(recipe)
+
+    if current_user.admin?
+      redirect_to "/admin/dashboard"
+    else
+      redirect_to recipe_path(recipe)
+    end
   end
 
   def edit
-    recipe
+    authorize_user
     @comment = Comment.find(params[:id])
   end
 
@@ -46,6 +53,13 @@ class CommentsController < ApplicationController
   end
 
   private
+
+  def authorize_user
+    recipe
+    unless current_user.admin? || current_user == @recipe.user
+      redirect_to root_path
+    end
+  end
 
   def comment_params
     params.require(:comment).permit(:body)

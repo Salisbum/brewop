@@ -2,7 +2,7 @@ class ProfilesController < ApplicationController
   before_action :authorize_user, only: [:index]
 
   def index
-    @profiles = Profile.all.order("created_at ASC")
+      redirect_to root_path
   end
 
   def show
@@ -29,7 +29,12 @@ class ProfilesController < ApplicationController
     else
       flash[:alert] = "Account Not Deleted"
     end
-    redirect_to profiles_path
+
+    if current_user.admin?
+      redirect_to "/admin/dashboard"
+    else
+      redirect_to profiles_path
+    end
   end
 
   def edit
@@ -66,7 +71,7 @@ class ProfilesController < ApplicationController
   end
 
   def authorize_user
-    if !current_user.admin?
+    unless current_user.admin?
       redirect_to root_path
     end
   end
