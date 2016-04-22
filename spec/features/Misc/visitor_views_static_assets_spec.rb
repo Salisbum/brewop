@@ -15,7 +15,7 @@ Acceptance Criteria
 feature "visitor views static assets" do
   scenario "visitor views the homepage" do
     visit root_path
-    expect(page).to have_content "BrewOp is an app for homebrewers to manage their recipes and brewing process."
+    expect(page).to have_content "Manage your beer recipes and the brewing process."
   end
 
   scenario "visitor views the about page" do

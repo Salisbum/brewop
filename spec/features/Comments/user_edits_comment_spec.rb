@@ -2,21 +2,21 @@ require "rails_helper"
 
 =begin
 As a user
-I want to edit a comment
+I want to edit a note
 So that I can correct any mistakes or add updates
 
 Acceptance Criteria
 - I must provide valid information
 - I must be presented with errors if I fill out the form incorrectly
-- I must be able to get to the edit form for the comment from the recipe's details page
+- I must be able to get to the edit form for the note from the recipe's details page
 =end
 
-feature "User edits a comment on a recipe" do
-  scenario "User correctly edits a comment on a recipe" do
+feature "User edits a note on a recipe" do
+  scenario "User correctly edits a note on a recipe" do
     user = FactoryGirl.create(:user)
     FactoryGirl.create(:profile, user: user)
     recipe = FactoryGirl.create(:recipe, user: user)
-    comment = FactoryGirl.create(:comment, user: user, recipe: recipe)
+    note = FactoryGirl.create(:comment, user: user, recipe: recipe)
 
     login(user)
 
@@ -24,21 +24,21 @@ feature "User edits a comment on a recipe" do
 
     click_link recipe.name
 
-    expect(page).to have_content comment.body
+    expect(page).to have_content note.body
 
-    click_link "Edit Comment"
+    click_link "Edit Note"
 
-    fill_in "Comment", with: "This was terrible."
-    click_on "Submit Comment"
+    fill_in "Note", with: "This was terrible."
+    click_on "Submit Note"
 
     expect(page).to have_content "This was terrible."
   end
 
-  scenario "User incorrectly edits a comment on a recipe" do
+  scenario "User incorrectly edits a note on a recipe" do
     user = FactoryGirl.create(:user)
     FactoryGirl.create(:profile, user: user)
     recipe = FactoryGirl.create(:recipe, user: user)
-    comment = FactoryGirl.create(:comment, user: user, recipe: recipe)
+    note = FactoryGirl.create(:comment, user: user, recipe: recipe)
 
     login(user)
 
@@ -46,12 +46,12 @@ feature "User edits a comment on a recipe" do
 
     click_link recipe.name
 
-    expect(page).to have_content comment.body
+    expect(page).to have_content note.body
 
-    click_link "Edit Comment"
+    click_link "Edit Note"
 
-    fill_in "Comment", with: ""
-    click_on "Submit Comment"
+    fill_in "Note", with: ""
+    click_on "Submit Note"
 
     expect(page).to have_content "Body can't be blank."
   end

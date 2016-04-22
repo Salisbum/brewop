@@ -6,7 +6,7 @@ feature "Admin deletes a comment" do
   scenario "Admin deletes a comment sucessfully" do
     profile = FactoryGirl.create(:profile, user: user1)
     recipe = FactoryGirl.create(:recipe, user: user1)
-    comment = FactoryGirl.create(:comment, user: user1, recipe: recipe)
+    note = FactoryGirl.create(:comment, user: user1, recipe: recipe)
 
     admin_login
 
@@ -16,10 +16,10 @@ feature "Admin deletes a comment" do
 
     click_link recipe.name
 
-    expect(page).to have_content comment.body
+    expect(page).to have_content note.body
 
-    click_on "Delete Comment"
+    click_on "Delete Note"
 
-    expect(page).to_not have_content comment.body
+    expect(page).to_not have_content note.body
   end
 end
