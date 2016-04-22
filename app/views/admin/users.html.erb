@@ -1,0 +1,15 @@
+<%= render 'admin/layout' %>
+
+<% if current_user.admin? %>
+<h1>Profiles Index</h1>
+  <% if @profiles.nil? %>
+    There are no profiles to display.
+  <% else %>
+    <% @profiles.each do |profile| %>
+      User: <%= profile.user.id %> | Profile: <%= profile.id %>: <%= link_to "#{profile.user.email}", profile_path(profile.id) %>
+      <%= button_to "Delete", profile_path(profile), class:"button", method: "delete" %>
+    <% end %>
+  <% end %>
+<% else %>
+  You do not have permission to view this page.
+<% end %>

@@ -1,0 +1,10 @@
+<% if current_user.admin? %>
+<h1>Admin Dashboard</h1>
+<ul class="menu">
+  <li><a href="/admin/dashboard">Dashboard</a></li>
+  <li><a href="/admin/users">User List</a></li>
+  <li><a href="/admin/recipes">All Recipes</a></li>
+</ul>
+<% else %>
+  You do not have permission to view this page.
+<% end %>
