@@ -47,13 +47,13 @@
 <div class="comments">
   <%= render '/comments/form' %>
   <% if @comments.empty? %>
-    No comments yet!
+    No notes yet!
   <% else %>
     <% @comments.each do |c| %>
-      <h4>Comment, <%= c.created_at %></h4>
+      <h4>Note, <%= c.created_at %></h4>
       <%= c.body %>
-      <%= button_to "Delete Comment", recipe_comment_path(c.recipe.id, c.id), class:"button", method:"delete" %>
-      <%= link_to "Edit Comment", edit_recipe_comment_path(c.recipe.id, c.id) %>
+      <%= button_to "Delete Note", recipe_comment_path(c.recipe.id, c.id), class:"button", method:"delete" %>
+      <%= link_to "Edit Note", edit_recipe_comment_path(c.recipe.id, c.id) %>
     <% end %>
   <% end %>
 </div>
