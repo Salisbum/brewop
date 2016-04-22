@@ -9,7 +9,9 @@
 </div>
 
 <div class="container">
+  <% if @recipe.user == current_user %>
   <%= button_to "Edit", edit_recipe_path(@recipe), class:"button", method:"get" %>
+  <% end %>
 </div>
 
 <div class="details">
@@ -45,7 +47,10 @@
 </div>
 
 <div class="comments">
-  <%= render '/comments/form' %>
+  <% if @recipe.user == current_user %>
+    <%= render '/comments/form' %>
+  <% end %>
+  
   <% if @comments.empty? %>
     No notes yet!
   <% else %>
@@ -53,7 +58,9 @@
       <h4>Note, <%= c.created_at %></h4>
       <%= c.body %>
       <%= button_to "Delete Note", recipe_comment_path(c.recipe.id, c.id), class:"button", method:"delete" %>
-      <%= link_to "Edit Note", edit_recipe_comment_path(c.recipe.id, c.id) %>
+      <% if @recipe.user == current_user %>
+        <%= link_to "Edit Note", edit_recipe_comment_path(c.recipe.id, c.id) %>
+      <% end %>
     <% end %>
   <% end %>
 </div>

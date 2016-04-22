@@ -4,6 +4,7 @@ class AdminsController < ApplicationController
   def show
     @profiles = Profile.all.order("created_at ASC")
     @admin_recipes = Recipe.all.order(:name)
+    @admin_comments = Comment.all.order("created_at ASC")
     render template: "admin/#{params[:page]}"
   end
 

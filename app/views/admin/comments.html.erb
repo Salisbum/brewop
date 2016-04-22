@@ -1,0 +1,15 @@
+<%= render 'admin/layout' %>
+
+<% if current_user.admin? %>
+<h1>Notes Index</h1>
+  <% if @admin_comments.nil? %>
+    There are no notes to display.
+  <% else %>
+    <% @admin_comments.each do |note| %>
+      User: <%= note.user.email %> | <%= note.body %>
+      <%= button_to "Delete Note", recipe_comment_path(note.recipe.id, note.id), class:"button", method:"delete" %>
+    <% end %>
+  <% end %>
+<% else %>
+  You do not have permission to view this page.
+<% end %>

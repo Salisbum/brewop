@@ -1,4 +1,6 @@
 class RecipesController < ApplicationController
+  before_action :authorize_user, only: [:edit, :show]
+
   def index
     @recipes = current_user.recipes.order(:name)
     @admin_recipes = Recipe.all.order(:name)
@@ -24,13 +26,13 @@ class RecipesController < ApplicationController
   end
 
   def show
-    recipe
+    authorize_user
     @comment = Comment.new
     @comments = @recipe.comments.order("created_at DESC")
   end
 
   def edit
-    recipe
+    authorize_user
     @beer_type_collection = Recipe::BEER_TYPES
   end
 
@@ -49,18 +51,28 @@ class RecipesController < ApplicationController
   end
 
   def destroy
-    recipe
+    authorize_user
     comments = recipe.comments
-    if current_user == @recipe.user || current_user.admin?
-      if @recipe.destroy
-        comments.each { |comment| comment.destroy }
-        flash[:notice] = "Recipe deleted successfully"
-      end
+    if @recipe.destroy
+      comments.each { |comment| comment.destroy }
+      flash[:notice] = "Recipe deleted successfully"
+    end
+
+    if current_user.admin?
+      redirect_to "/admin/dashboard"
+    else
       redirect_to recipes_path
     end
   end
 
   private
+
+  def authorize_user
+    recipe
+    unless current_user.admin? || current_user == @recipe.user
+      redirect_to root_path
+    end
+  end
 
   def recipe_params
     params.require(:recipe).permit(:name, :ingredients, :brewing_instructions, :description, :beer_type)
