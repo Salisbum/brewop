@@ -1,6 +1,7 @@
-<h2>Profiles Index</h2>
+<%= render 'admin/layout' %>
 
 <% if current_user.admin? %>
+<h1>Profiles Index</h1>
   <% if @profiles.nil? %>
     There are no profiles to display.
   <% else %>

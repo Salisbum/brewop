@@ -35,7 +35,7 @@ class ProfilesController < ApplicationController
   def edit
     profile = Profile.find(params[:id])
     user = profile.user
-    unless current_user.admin? || current_user == user
+    unless current_user == user
       redirect_to root_path
     else
       @profile = Profile.find(params[:id])

@@ -1,0 +1,14 @@
+<%= render 'admin/layout' %>
+<% if current_user.admin? %>
+
+  <div class="row">
+    Number of Users: <%= @profiles.count %>
+  </div>
+
+  <div class="row">
+    Number of Recipes: <%= @admin_recipes.count %>
+  </div>
+
+<% else %>
+  You do not have permission to view this page.
+<% end %>
