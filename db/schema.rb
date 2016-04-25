@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160421151600) do
+ActiveRecord::Schema.define(version: 20160425145425) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "batches", force: :cascade do |t|
+    t.string   "bottling_option", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "recipe_id",       null: false
+    t.integer  "user_id",         null: false
+    t.integer  "bottle_count",    null: false
+    t.string   "batch_name",      null: false
+    t.text     "batch_notes",     null: false
+  end
 
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id",    null: false
@@ -22,6 +33,24 @@ ActiveRecord::Schema.define(version: 20160421151600) do
     t.text     "body",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "ingredients", force: :cascade do |t|
+    t.integer "recipe_id", null: false
+    t.integer "user_id",   null: false
+    t.string  "unit",      null: false
+    t.integer "quantity",  null: false
+    t.string  "item",      null: false
+  end
+
+  create_table "instructions", force: :cascade do |t|
+    t.integer "recipe_id",     null: false
+    t.integer "ingredient_id", null: false
+    t.integer "user_id",       null: false
+    t.string  "unit",          null: false
+    t.integer "quantity",      null: false
+    t.string  "add_point",     null: false
+    t.string  "temperature"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -35,14 +64,12 @@ ActiveRecord::Schema.define(version: 20160421151600) do
   end
 
   create_table "recipes", force: :cascade do |t|
-    t.integer  "user_id",              null: false
-    t.string   "name",                 null: false
+    t.integer  "user_id",     null: false
+    t.string   "name",        null: false
     t.string   "beer_type"
-    t.text     "ingredients",          null: false
-    t.text     "brewing_instructions", null: false
     t.text     "description"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|

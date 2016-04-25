@@ -29,6 +29,8 @@ class RecipesController < ApplicationController
     authorize_user
     @comment = Comment.new
     @comments = @recipe.comments.order("created_at DESC")
+    @ingredients = @recipe.ingredients.order(item: :asc)
+    @instructions = @recipe.instructions.order(add_point: :desc)
   end
 
   def edit
@@ -75,7 +77,7 @@ class RecipesController < ApplicationController
   end
 
   def recipe_params
-    params.require(:recipe).permit(:name, :ingredients, :brewing_instructions, :description, :beer_type)
+    params.require(:recipe).permit(:name, :description, :beer_type)
   end
 
   def recipe

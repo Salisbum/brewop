@@ -11,8 +11,24 @@ FactoryGirl.define do
     sequence(:name) { |n| "recipe#{n}" }
     beer_type "IPA"
     description "Very tasty."
-    ingredients "So many ingredients!"
-    brewing_instructions "So many instructions!"
+  end
+
+  factory :instruction do
+    recipe
+    user
+    ingredient
+    unit "OZ"
+    quantity "4"
+    add_point "30"
+    temperature "120"
+  end
+
+  factory :ingredient do
+    recipe
+    user
+    unit "LBS"
+    quantity "4"
+    sequence(:item) { |n| "item#{n}" }
   end
 
   factory :comment do

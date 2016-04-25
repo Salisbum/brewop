@@ -21,22 +21,53 @@ Profile.create(
   user: tester
 )
 
-
 recipe = Recipe.create(
   user: tester,
   name: "Nice IPA",
   beer_type: "IPA",
-  ingredients: "Rye, 1/4 pound. Barley, 1/2 pound.",
-  brewing_instructions: "Put loose grain into muslin bag.",
   description: "Very tasty."
+)
+
+ing1 = Ingredient.create(
+  recipe: recipe,
+  user: tester,
+  unit: "LBS",
+  quantity: 2,
+  item: "Chocolate Roast Malt"
+)
+
+ing2 = Ingredient.create(
+  recipe: recipe,
+  user: tester,
+  unit: "PACKAGE",
+  quantity: 1,
+  item: "WYEAST Lager Yeast"
+)
+
+Instruction.create(
+  recipe: recipe,
+  user: tester,
+  ingredient: ing1,
+  unit: "LBS",
+  quantity: 1,
+  add_point: "60",
+  temperature: "160F"
+)
+
+Instruction.create(
+  recipe: recipe,
+  user: tester,
+  ingredient: ing2,
+  unit: "PACKAGE",
+  quantity: 1,
+  add_point: "0",
+  temperature: "70F"
 )
 
 recipe2 = Recipe.create(
   user: tester,
   name: "Tasty Belgian",
   beer_type: "Hefeweizen",
-  ingredients: "Cardamom, orange peel, coriander.",
-  brewing_instructions: "Steep the peel, coriander, and cardamom in a muslin bag in the wort.",
   description: "Very wheaty."
 )
 

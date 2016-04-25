@@ -26,8 +26,6 @@ feature "authenticated user adds new recipe" do
 
     fill_in "Recipe Name", with: "Super Hefe"
     fill_in "Description", with: "Tasty fruity hefe."
-    fill_in "Ingredients", with: "Orange Peel, Coriander"
-    fill_in "Brewing Instructions", with: "Add Orange peel and Coriander to muslin bag in wort."
     select "Hefeweizen", from: "Beer Type"
     click_on "Save"
 
@@ -46,8 +44,6 @@ feature "authenticated user adds new recipe" do
 
     fill_in "Name", with: ""
     select "Hefeweizen", from: "Beer Type"
-    fill_in "Ingredients", with: ""
-    fill_in "Brewing Instructions", with: "Add Orange peel and Coriander to muslin bag in wort."
     click_on "Save"
 
     expect(page).to have_content "Please ensure you filled out the form correctly."
