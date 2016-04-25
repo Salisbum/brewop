@@ -31,14 +31,18 @@
 <div class="details">
   <h2>Ingredients</h2>
   <div class="details" id="details">
-    <%= @recipe.ingredients %>
+    <% @ingredients.each do |i| %>
+      <li><%= i.quantity %> <%= i.unit %> | <%= i.item %></li>
+    <% end %>
   </div>
 </div>
 
 <div class="details">
   <h2>Brewing Instructions</h2>
   <div class="details" id="details">
-    <%= @recipe.brewing_instructions %>
+    <% @instructions.each do |i| %>
+      <li><%= i.add_point %> | <%= i.temperature %> | <%= i.quantity %> <%= i.unit %> | <%= i.ingredient.item %></li>
+    <% end %>
   </div>
 </div>
 
@@ -50,7 +54,7 @@
   <% if @recipe.user == current_user %>
     <%= render '/comments/form' %>
   <% end %>
-  
+
   <% if @comments.empty? %>
     No notes yet!
   <% else %>

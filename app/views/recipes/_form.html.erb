@@ -5,12 +5,6 @@
   <%= f.label :description, "Description" %>
   <%= f.text_area :description %>
 
-  <%= f.label :ingredients, "Ingredients" %>
-  <%= f.text_area :ingredients %>
-
-  <%= f.label :brewing_instructions, "Brewing Instructions" %>
-  <%= f.text_area :brewing_instructions %>
-
   <%= f.label :beer_type, "Beer Type" %>
   <%= f.select :beer_type, options_for_select(@beer_type_collection) %>
 

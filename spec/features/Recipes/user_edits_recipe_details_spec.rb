@@ -28,8 +28,6 @@ feature "authenticated user edits recipe details" do
 
     fill_in "Name", with: "Super Hefe"
     select "Hefeweizen", from: "Beer Type"
-    fill_in "Ingredients", with: "Orange Peel, Coriander"
-    fill_in "Brewing Instructions", with: "Add Orange peel and Coriander to muslin bag in wort."
     click_on "Save"
 
     expect(page).to have_content "Super Hefe"

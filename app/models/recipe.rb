@@ -8,12 +8,10 @@ class Recipe < ActiveRecord::Base
 
   belongs_to :user
   has_many :comments, dependent: :destroy
+  has_many :ingredients, dependent: :destroy
+  has_many :instructions, dependent: :destroy
 
   validates :user_id, presence: true
   validates :name, presence: true
-  validates :ingredients, presence: true
-  validates :ingredients, length: { minimum: 5, maximum: 1000 }
-  validates :brewing_instructions, length: { minimum: 5, maximum: 1000 }
-  validates :brewing_instructions, presence: true
   validates :description, length: { maximum: 1000 }
 end

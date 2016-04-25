@@ -26,7 +26,5 @@ feature "authenticated user views recipe details" do
 
     expect(page).to have_content recipe.name
     expect(page).to have_content recipe.beer_type
-    expect(page).to have_content recipe.ingredients
-    expect(page).to have_content recipe.brewing_instructions
   end
 end
