@@ -30,6 +30,7 @@ $(function() {
   //     comment: {
   //       id: commentId,
   //       body: newCommentContent
+  //
   //     }
   //   };
   //
@@ -38,9 +39,9 @@ $(function() {
   //     data: newComment,
   //     url: targetUrl
   //   });
-  //
   //   request.done(function() {
   //     $("div#comment-"+commentId).find('span').text(newCommentContent);
+  //     debugger;
   //     $("div#comment-"+commentId).find('.update-form').toggle();
   //   });
   // });

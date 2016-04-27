@@ -26,23 +26,23 @@ class Api::CommentsController < ApplicationController
   #   end
   # end
 
-  # def edit
-  #   authorize_user
-  #   @comment = Comment.find(params[:id])
-  # end
-  #
-  # def update
-  #   authorize_user
-  #   @comment = Comment.find(params[:id])
-  #   if current_user == @comment.user || current_user.admin?
-  #     if @comment.update(comment_params)
-  #       render json: nil, status: :ok
-  #     else
-  #       render json: @comment.errors,
-  #         status: :unprocessable_entity
-  #     end
-  #   end
-  # end
+  def edit
+    authorize_user
+    @comment = Comment.find(params[:id])
+  end
+
+  def update
+    authorize_user
+    @comment = Comment.find(params[:id])
+    if current_user == @comment.user || current_user.admin?
+      if @comment.update(comment_params)
+        render json: nil, status: :ok
+      else
+        render json: @comment.errors,
+          status: :unprocessable_entity
+      end
+    end
+  end
 
   def destroy
     authorize_user
@@ -56,7 +56,7 @@ class Api::CommentsController < ApplicationController
   private
 
   def recipe
-    @recipe ||= Recipe.find(params[:recipe_id])
+    @recipe ||= Recipe.find(params[:id])
   end
 
   def authorize_user
