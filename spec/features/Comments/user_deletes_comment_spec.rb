@@ -10,7 +10,7 @@ Acceptance Criteria
 =end
 
 feature "User deletes a note" do
-  scenario "User deletes a note" do
+  scenario "User deletes a note", js: true do
     user = FactoryGirl.create(:user)
     FactoryGirl.create(:profile, user: user)
     recipe = FactoryGirl.create(:recipe, user: user)
@@ -24,7 +24,6 @@ feature "User deletes a note" do
 
     expect(page).to have_content note.body
     click_on "Delete Note"
-    
-    expect(page).to have_content "No notes yet!"
+    expect(page).to_not have_content note.body
   end
 end

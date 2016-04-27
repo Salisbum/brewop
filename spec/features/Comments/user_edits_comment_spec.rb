@@ -12,7 +12,7 @@ Acceptance Criteria
 =end
 
 feature "User edits a note on a recipe" do
-  scenario "User correctly edits a note on a recipe" do
+  scenario "User correctly edits a note on a recipe", js: true do
     user = FactoryGirl.create(:user)
     FactoryGirl.create(:profile, user: user)
     recipe = FactoryGirl.create(:recipe, user: user)
@@ -26,15 +26,15 @@ feature "User edits a note on a recipe" do
 
     expect(page).to have_content note.body
 
-    click_link "Edit Note"
+    find('.edit').trigger('click')
 
     fill_in "Note", with: "This was terrible."
-    click_on "Submit Note"
+    click_on "Edit Note"
 
     expect(page).to have_content "This was terrible."
   end
 
-  scenario "User incorrectly edits a note on a recipe" do
+  scenario "User incorrectly edits a note on a recipe", js: true do
     user = FactoryGirl.create(:user)
     FactoryGirl.create(:profile, user: user)
     recipe = FactoryGirl.create(:recipe, user: user)
@@ -48,10 +48,10 @@ feature "User edits a note on a recipe" do
 
     expect(page).to have_content note.body
 
-    click_link "Edit Note"
+    find('.edit').trigger('click')
 
     fill_in "Note", with: ""
-    click_on "Submit Note"
+    click_on "Edit Note"
 
     expect(page).to have_content "Body can't be blank."
   end

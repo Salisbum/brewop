@@ -4,7 +4,7 @@ def default_login
 
   visit root_url
 
-  click_on "Login"
+  click_link "Login"
 
   fill_in "Email", with: user.email
   fill_in "Password", with: user.password
@@ -14,8 +14,8 @@ end
 def login(user)
   visit root_url
 
-  click_on "Login"
-
+  visit "/users/sign_in"
+  
   fill_in "Email", with: user.email
   fill_in "Password", with: user.password
   click_on "Log in"
@@ -27,7 +27,7 @@ def admin_login
 
   visit root_url
 
-  click_on "Login"
+  click_link "Login"
 
   fill_in "Email", with: user.email
   fill_in "Password", with: user.password

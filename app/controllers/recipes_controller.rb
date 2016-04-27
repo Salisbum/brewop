@@ -27,9 +27,13 @@ class RecipesController < ApplicationController
 
   def show
     authorize_user
+
     @comment = Comment.new
+
     @comments = @recipe.comments.order("created_at DESC")
+
     @ingredients = @recipe.ingredients.order(item: :asc)
+
     @instructions = @recipe.instructions.order(add_point: :desc)
   end
 
@@ -57,7 +61,7 @@ class RecipesController < ApplicationController
     comments = recipe.comments
     if @recipe.destroy
       comments.each { |comment| comment.destroy }
-      flash[:notice] = "Recipe deleted successfully"
+      flash[:notice] = "Recipe deleted successfully."
     end
 
     if current_user.admin?
@@ -69,6 +73,10 @@ class RecipesController < ApplicationController
 
   private
 
+  def recipe
+    @recipe ||= Recipe.find(params[:id])
+  end
+
   def authorize_user
     recipe
     unless current_user.admin? || current_user == @recipe.user
@@ -79,9 +87,4 @@ class RecipesController < ApplicationController
   def recipe_params
     params.require(:recipe).permit(:name, :description, :beer_type)
   end
-
-  def recipe
-    @recipe ||= Recipe.find(params[:id])
-  end
-
 end
