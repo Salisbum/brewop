@@ -50,21 +50,35 @@
   <%= button_to "Delete", recipe_path(@recipe), class:"button", method:"delete" %>
 </div>
 
-<div class="comments">
   <% if @recipe.user == current_user %>
-    <%= render '/comments/form' %>
+  <%= button_tag "New Note", class: 'new' %>
+    <div class="add-comment" style="display:none">
+      <%= render '/comments/form' %>
+    </div>
   <% end %>
 
   <% if @comments.empty? %>
     No notes yet!
   <% else %>
-    <% @comments.each do |c| %>
-      <h4>Note, <%= c.created_at %></h4>
-      <%= c.body %>
-      <%= button_to "Delete Note", recipe_comment_path(c.recipe.id, c.id), class:"button", method:"delete" %>
-      <% if @recipe.user == current_user %>
-        <%= link_to "Edit Note", edit_recipe_comment_path(c.recipe.id, c.id) %>
+    <div class="comments">
+      <% @comments.each do |c| %>
+      <div class="callout success" id="comment-<%= c.id %>">
+        <h4>Note, <%= c.created_at %></h4>
+        <span><%= c.body %></span>
+        <%= button_to "Delete Note", api_recipe_comment_path(c.recipe.id, c.id), class:"button", :method => :delete %>
+        <% if @recipe.user == current_user %>
+          <%= button_tag "Edit", class: 'edit' %>
+          <div class="update-form" style="display:none">
+            <%= form_for [@recipe, c], method: 'put' do |f| %>
+              <%= f.label :body, "Note: " %>
+              <%= f.text_area :body %>
+              <%= f.hidden_field(:id, value: c.id) %>
+
+              <%= f.submit "Edit Note", class: "button" %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
       <% end %>
-    <% end %>
+    </div>
   <% end %>
-</div>

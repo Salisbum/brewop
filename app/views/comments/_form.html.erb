@@ -1,6 +1,7 @@
 <%= form_for [@recipe, @comment] do |f| %>
   <%= f.label :body, "Note: " %>
   <%= f.text_area :body %>
+  <%= f.hidden_field(:id, value: @comment.id) %>
 
   <%= f.submit "Submit Note", class: "button" %>
 <% end %>

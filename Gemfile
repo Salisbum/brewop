@@ -14,6 +14,7 @@ gem 'faker'
 gem 'carrierwave', '~> 0.10.0'
 gem 'mini_magick', '~> 4.3'
 gem 'fog'
+# gem 'rails-api'
 
 group :development, :test do
   gem 'byebug'
@@ -23,18 +24,15 @@ group :development, :test do
   gem 'pry-rails'
   gem 'launchy'
   gem 'factory_girl_rails'
+  gem 'dotenv-rails'
 end
 
 gem 'web-console', group: :development
-
-group :development, :test do
-  gem "dotenv-rails"
-end
-
-gem 'database_cleaner', group: :test
 
 group :test do
   gem 'coveralls', require: false
   gem 'orderly'
   gem 'pry-byebug'
+  gem 'poltergeist'
+  gem 'database_cleaner'
 end
