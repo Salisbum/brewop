@@ -26,7 +26,7 @@ feature "User edits a note on a recipe" do
 
     expect(page).to have_content note.body
 
-    find('.edit').trigger('click')
+    find(".edit").trigger("click")
 
     fill_in "Note", with: "This was terrible."
     click_on "Edit Note"
@@ -48,7 +48,7 @@ feature "User edits a note on a recipe" do
 
     expect(page).to have_content note.body
 
-    find('.edit').trigger('click')
+    find(".edit").trigger("click")
 
     fill_in "Note", with: ""
     click_on "Edit Note"

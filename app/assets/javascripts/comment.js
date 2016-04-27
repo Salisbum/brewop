@@ -1,24 +1,24 @@
 $(function() {
 
   $(function() {
-    $('.button_to').click(function(event) {
+    $(".button_to").click(function(event) {
       event.preventDefault();
 
       var element = event.target;
-      var targetUrl = $(this).attr('action');
+      var targetUrl = $(this).attr("action");
 
       $.ajax({
         method: "DELETE",
         url: targetUrl,
         dataType: "json"
-      }).done(function(data) {
+      }).done(function() {
         $(element).parent().parent().remove();
       });
     });
   });
 
-  $('.edit').click(function(){
-     $(this).parent().find('.update-form').toggle();
+  $(".edit").click(function(){
+     $(this).parent().find(".update-form").toggle();
   });
 
   // $('form.edit_comment').submit(function(event){
@@ -39,7 +39,7 @@ $(function() {
   //     url: targetUrl
   //   });
   //
-  //   request.done(function(data) {
+  //   request.done(function() {
   //     $("div#comment-"+commentId).find('span').text(newCommentContent);
   //     $("div#comment-"+commentId).find('.update-form').toggle();
   //   });
@@ -65,7 +65,7 @@ $(function() {
   //     url: targetUrl
   //   });
   //
-  //   request.done(function(data) {
+  //   request.done(function() {
   //     var html = "<div class='callout success'>" +
   //         newCommentContent +
   //       "</div>";

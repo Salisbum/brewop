@@ -23,7 +23,7 @@ feature "User creates a note on a recipe" do
 
     click_link recipe.name
 
-    find('.new').trigger('click')
+    find(".new").trigger("click")
 
     fill_in "Note:", with: "Turned out well, could have bottled earlier."
 
@@ -44,7 +44,7 @@ feature "User creates a note on a recipe" do
 
     click_link recipe.name
 
-    find('.new').trigger('click')
+    find(".new").trigger("click")
 
     click_on "Submit Note"
 
