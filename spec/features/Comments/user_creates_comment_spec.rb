@@ -12,7 +12,7 @@ Acceptance Criteria
 =end
 
 feature "User creates a note on a recipe" do
-  scenario "User correctly creates a new note on a recipe", js: true do
+  scenario "User correctly creates a new note on a recipe", js: true, focus: true do
     user = FactoryGirl.create(:user)
     FactoryGirl.create(:profile, user: user)
     recipe = FactoryGirl.create(:recipe, user: user)
@@ -25,7 +25,7 @@ feature "User creates a note on a recipe" do
 
     find(".new").trigger("click")
 
-    fill_in "Note:", with: "Turned out well, could have bottled earlier."
+    fill_in 'Note', with: 'Turned out well, could have bottled earlier.'
 
     click_on "Submit Note"
 
