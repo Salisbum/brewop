@@ -13,4 +13,6 @@
 
 <%= link_to "Add Brewing Instructions", new_recipe_instruction_path(@recipe, @instruction) %>
 
-<%= link_to "Back To: #{@recipe.name}", recipe_path(@recipe) %>
+<div class="container">  
+  <%= link_to "Back To: #{@recipe.name}", recipe_path(@recipe) %>
+</div>

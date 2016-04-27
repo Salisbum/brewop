@@ -45,12 +45,13 @@ ActiveRecord::Schema.define(version: 20160425145425) do
 
   create_table "instructions", force: :cascade do |t|
     t.integer "recipe_id",     null: false
-    t.integer "ingredient_id", null: false
+    t.integer "ingredient_id"
     t.integer "user_id",       null: false
     t.string  "unit",          null: false
     t.integer "quantity",      null: false
     t.integer "add_point",     null: false
     t.string  "temperature"
+    t.string  "details"
   end
 
   create_table "profiles", force: :cascade do |t|

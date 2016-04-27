@@ -47,10 +47,14 @@
 </div>
 
 <div class="details">
-  <h2>Brewing Instructions</h2>
+  <h2>The Boil</h2>
+  <p>
+     <%= link_to "New Boil Addition", new_recipe_instruction_path(@recipe) %>
+  </p>
+
   <div class="details" id="details">
     <% @instructions.each do |i| %>
-      <li><%= i.add_point %> | <%= i.temperature %> | <%= i.quantity %> <%= i.unit %> | <%= i.ingredient.item %></li>
+      <li><%= i.add_point %> | <%= i.temperature %> | <%= i.quantity %> <%= i.unit %> | <%= link_to i.ingredient.item, recipe_instruction_path(i.recipe.id, i.id) %></li>
     <% end %>
   </div>
 </div>
@@ -58,9 +62,9 @@
 <div class="container">
   <% if @recipe.user == current_user %>
   <%= button_tag "New Note", class: 'new-comment' %>
-    <div class="add-comment" style="display:none">
+    <!-- <div class="add-comment" style="display:none"> -->
       <%= render '/comments/form' %>
-    </div>
+    <!-- </div> -->
   <% end %>
 
   <% if @comments.empty? %>
@@ -74,7 +78,7 @@
         <%= button_to "Delete Note", api_recipe_comment_path(c.recipe.id, c.id), class:"button", :method => :delete, class: 'delete-comment' %>
         <% if @recipe.user == current_user %>
           <%= button_tag "Edit", class: 'edit-comment' %>
-          <div class="update-form" style="display:none">
+          <!-- <div class="update-form" style="display:none"> -->
             <%= form_for [@recipe, c], method: 'put' do |f| %>
               <%= f.label :body, "Note: " %>
               <%= f.text_area :body %>
@@ -82,7 +86,7 @@
 
               <%= f.submit "Edit Note", class: "button" %>
             <% end %>
-          </div>
+          <!-- </div> -->
         <% end %>
       </div>
       <% end %>
