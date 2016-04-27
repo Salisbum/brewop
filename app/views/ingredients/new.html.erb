@@ -1,0 +1,16 @@
+<% unless @ingredients.nil? %>
+  <h3>Current Ingredients:</h3>
+  <% @ingredients.each do |i| %>
+    <li>
+      <%= i.item %>: <%= i.quantity %> | <%= i.unit %>
+    </li>
+  <% end %>
+<% end %>
+
+<h1>New Ingredient</h1>
+
+<%= render "ingredients/form" %>
+
+<%= link_to "Add Brewing Instructions", new_recipe_instruction_path(@recipe, @instruction) %>
+
+<%= link_to "Back To: #{@recipe.name}", recipe_path(@recipe) %>

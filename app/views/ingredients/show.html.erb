@@ -1,0 +1,9 @@
+<h1> <%= @ingredient.item %> </h1>
+
+Total Quantity: <%= @ingredient.quantity %> <%= @ingredient.unit %>
+
+ <%= link_to "Edit", edit_recipe_ingredient_path(@ingredient.recipe.id, @ingredient.id) %>
+
+ <%= link_to "Back To: #{@ingredient.recipe.name}", recipe_path(@ingredient.recipe) %>
+
+ <%= button_to "Delete", recipe_ingredient_path(@ingredient.recipe.id, @ingredient.id), class:"button", method:"delete" %>

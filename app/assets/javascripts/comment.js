@@ -1,7 +1,7 @@
 $(function() {
 
   $(function() {
-    $(".button_to").click(function(event) {
+    $(".delete-comment").click(function(event) {
       event.preventDefault();
 
       var element = event.target;
@@ -17,7 +17,7 @@ $(function() {
     });
   });
 
-  $(".edit").click(function(){
+  $(".edit-comment").click(function(){
      $(this).parent().find(".update-form").toggle();
   });
 
@@ -45,7 +45,7 @@ $(function() {
   //   });
   // });
 
-  $('.new').click(function(){
+  $('.new-comment').click(function(){
     $(this).parent().find('.add-comment').toggle();
   });
 

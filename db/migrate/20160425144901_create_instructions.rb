@@ -6,7 +6,7 @@ class CreateInstructions < ActiveRecord::Migration
       t.belongs_to :user, null: false
       t.string :unit, null: false
       t.integer :quantity, null: false
-      t.string :add_point, null: false
+      t.integer :add_point, null: false
       t.string :temperature
     end
   end

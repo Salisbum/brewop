@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 20160425145425) do
     t.integer "user_id",       null: false
     t.string  "unit",          null: false
     t.integer "quantity",      null: false
-    t.string  "add_point",     null: false
+    t.integer "add_point",     null: false
     t.string  "temperature"
   end
 

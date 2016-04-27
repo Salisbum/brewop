@@ -1,5 +1,5 @@
 class InstructionsController < ApplicationController
-  before_action :authorize_user, only: [:edit]
+  before_action :authorize_user
 
   private
 
