@@ -17,7 +17,7 @@ class RecipesController < ApplicationController
 
     if @recipe.save
       flash[:notice] = "Recipe added successfully!"
-      redirect_to recipe_path(@recipe)
+      redirect_to new_recipe_ingredient_path(@recipe)
     else
       flash[:alert] = "Please ensure you filled out the form correctly. #{@recipe.errors.full_messages.join ', '}."
       @beer_type_collection = Recipe::BEER_TYPES

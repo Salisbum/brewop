@@ -1,0 +1,20 @@
+<%= form_for [@recipe, @instruction] do |f| %>
+  <%= collection_select(:ingr_id, 0, @ingredients, :id, :item) %>
+
+  <%= f.label :unit, "Unit" %>
+  <%= f.select :unit, options_for_select(@units) %>
+
+  <%= f.label :quantity, "Quantity" %>
+  <%= f.text_field :quantity %>
+
+  <%= f.label :add_point, "Time Into Boil (min)" %>
+  <%= f.text_field :add_point %>
+
+  <%= f.label :temperature, "Temperature" %>
+  <%= f.text_field :temperature %>
+
+  <%= f.label :details, "Details" %>
+  <%= f.text_area :details %>
+
+  <%= f.submit "Save" %>
+<% end %>

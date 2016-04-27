@@ -4,7 +4,7 @@ class Ingredient < ActiveRecord::Base
     ["TSP", "TSP"],
     ["GAL", "GAL"],
     ["OZ", "OZ"],
-    ["PACKAGE", "PACKAGE"]
+    ["PACKAGE(S)", "PACKAGE(S)"]
   ]
 
   belongs_to :recipe

@@ -12,7 +12,9 @@ Acceptance Criteria
 =end
 
 feature "User creates a note on a recipe" do
-  scenario "User correctly creates a new note on a recipe", js: true, focus: true do
+  scenario "User correctly creates a new note on a recipe", js: true do
+    pending
+    
     user = FactoryGirl.create(:user)
     FactoryGirl.create(:profile, user: user)
     recipe = FactoryGirl.create(:recipe, user: user)
@@ -33,6 +35,8 @@ feature "User creates a note on a recipe" do
   end
 
   scenario "User incorrectly creates a new note on a recipe", js: true do
+    pending
+
     user = FactoryGirl.create(:user)
     FactoryGirl.create(:profile, user: user)
 

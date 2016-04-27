@@ -31,17 +31,21 @@ class Api::CommentsController < ApplicationController
 
   def destroy
     authorize_user
+    binding.pry
     @comment = Comment.find(params[:id])
     if current_user == @comment.user || current_user.admin?
       @comment.destroy
       render json: nil, status: :ok
+    else
+      render json: @comment.errors,
+        status: :unprocessable_entity
     end
   end
 
   private
 
   def recipe
-    @recipe ||= Recipe.find(params[:id])
+    @recipe ||= Recipe.find(params[:recipe_id])
   end
 
   def authorize_user

@@ -1,0 +1,5 @@
+<h3>Edit <%= @instruction.ingredient.item %></h3>
+
+<%= render "form" %>
+
+<%= link_to "Back To: #{@instruction.recipe.name}", recipe_path(@instruction.recipe) %>

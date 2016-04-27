@@ -7,9 +7,9 @@ class CommentsController < ApplicationController
     @comment.user = current_user
 
     if @comment.save
-      flash[:notice] = "Comment saved!"
+      flash[:notice] = "Note saved!"
     else
-      flash[:alert] = "Comment not saved! #{@comment.errors.full_messages.join ', '}."
+      flash[:alert] = "Note not saved! #{@comment.errors.full_messages.join ', '}."
     end
     redirect_to recipe_path(recipe)
   end
@@ -19,10 +19,10 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     if current_user == @comment.user || current_user.admin?
       if @comment.destroy
-        flash[:notice] = "Comment deleted."
+        flash[:notice] = "Note deleted."
       end
     else
-      flash[:notice] = "You cannot delete this comment."
+      flash[:notice] = "You cannot delete this note."
     end
 
     if current_user.admin?
@@ -42,12 +42,12 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     if current_user == @comment.user || current_user.admin?
       if @comment.update(comment_params)
-        flash[:notice] = "Comment updated!"
+        flash[:notice] = "Note updated!"
       else
-        flash[:alert] = "Comment not saved! #{@comment.errors.full_messages.join ', '}."
+        flash[:alert] = "Note not saved! #{@comment.errors.full_messages.join ', '}."
       end
     else
-      flash[:notice] = "You cannot edit this comment."
+      flash[:notice] = "You cannot edit this note."
     end
     redirect_to recipe_path(recipe)
   end

@@ -23,7 +23,10 @@ feature "User deletes a note" do
     click_link recipe.name
 
     expect(page).to have_content note.body
-    click_on "Delete Note"
+
+    find(".delete-comment").trigger("click")
+
+
     expect(page).to_not have_content note.body
   end
 end

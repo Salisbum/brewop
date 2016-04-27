@@ -1,0 +1,12 @@
+<%= form_for [@recipe, @ingredient] do |f| %>
+  <%= f.label :item, "Item" %>
+  <%= f.text_field :item %>
+
+  <%= f.label :unit, "Unit" %>
+  <%= f.select :unit, options_for_select(@units) %>
+
+  <%= f.label :quantity, "Quantity" %>
+  <%= f.text_field :quantity %>
+
+  <%= f.submit "Save" %>
+<% end %>
