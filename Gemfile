@@ -14,7 +14,6 @@ gem 'faker'
 gem 'carrierwave', '~> 0.10.0'
 gem 'mini_magick', '~> 4.3'
 gem 'fog'
-# gem 'rails-api'
 
 group :development, :test do
   gem 'byebug'
