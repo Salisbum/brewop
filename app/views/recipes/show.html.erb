@@ -15,7 +15,7 @@
 </div>
 
 <div class="container">
-  <% if @recipe.user == current_user %>
+  <% if @recipe.user == current_user || current_user.admin? %>
     <%= button_to "Delete", recipe_path(@recipe), class:"button", method:"delete" %>
     <% end %>
 </div>
@@ -75,7 +75,7 @@
       <div class="callout success" id="comment-<%= c.id %>">
         <h4>Note, <%= c.created_at %></h4>
         <span><%= c.body %></span>
-        <%= button_to "Delete Note", api_recipe_comment_path(c.recipe.id, c.id), class:"button", :method => :delete, class: 'delete-comment' %>
+        <%= button_to "Delete Note", api_recipe_comment_path(c.recipe.id, c.id), class:"button", :method => :delete, id:'delete-comment' %>
         <% if @recipe.user == current_user %>
           <%= button_tag "Edit", class: 'edit-comment' %>
           <!-- <div class="update-form" style="display:none"> -->
