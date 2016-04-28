@@ -1,16 +1,18 @@
-<% unless @instructions.nil? %>
-  <h3>Current Boil Additions:</h3>
-  <% @instructions.each do |i| %>
-    <li>
-      <%= i.ingredient.item %>: <%= i.quantity %> | <%= i.unit %>
-    </li>
+<div class="row">
+  <% unless @instructions.nil? %>
+    <h3>Current Boil Additions:</h3>
+    <% @instructions.each do |i| %>
+      <li>
+        <%= i.ingredient.item %>: <%= i.quantity %> | <%= i.unit %>
+      </li>
+    <% end %>
   <% end %>
-<% end %>
 
-<h1>New Boil Addition</h1>
+  <h1>New Boil Addition</h1>
 
-<%= render "instructions/form" %>
+  <%= render "instructions/form" %>
 
-<div class="container">
-  <%= link_to "Back To: #{@recipe.name}", recipe_path(@recipe) %>
+  <div class="row link">
+    <%= link_to "Back To: #{@recipe.name}", recipe_path(@recipe) %>
+  </div>
 </div>

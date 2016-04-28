@@ -1,19 +1,17 @@
-<div class="container">
-  Added: <%= @recipe.created_at %>
+<div class="large-6 columns">
+  <h2>Details</h2>
+  <p>
+    Added: <%= @recipe.created_at %>
+  </p>
+  <p>
+    Last Updated: <%= @recipe.updated_at %>
+  </p>
+  <p>
+    Beer Type: <%= @recipe.beer_type %>
+  </p>
 </div>
 
-<div class="container">
-  Last Updated: <%= @recipe.updated_at %>
-</div>
-
-<div class="container">
-  <h2>Beer Type</h2>
-  <div class="details" id="details">
-    <%= @recipe.beer_type %>
-  </div>
-</div>
-
-<div class="container">
+<div class="large-6 columns">
   <h2>Description</h2>
   <div class="details" id="details">
     <%= @recipe.description %>

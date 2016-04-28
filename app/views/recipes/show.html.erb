@@ -1,35 +1,34 @@
-<div class="row">
-  <h1> <%= @recipe.name %> </h1>
-
-  <% if @recipe.user == current_user %>
-    <%= button_to "Edit", edit_recipe_path(@recipe), class:"button", method:"get" %>
-  <% end %>
-
-  <% if @recipe.user == current_user || current_user.admin?%>
-    <%= button_to "Delete", recipe_path(@recipe), class:"button", method:"delete" %>
-  <% end %>
-
+<div class="row recipe-title">
+  <div class="large-6 columns menu">
+    <h1> <%= @recipe.name %> </h1>
+    <% if @recipe.user == current_user %>
+      <li><%= button_to "Brewed!", new_recipe_batch_path(@recipe), class:"button", method:"get", id:"brew" %></li>
+      <li><%= link_to "Batches", recipe_batches_path(@recipe) %></li>
+    <% end %>
+  </div>
+  <div class="small-12 large-1 columns">
+    <% if @recipe.user == current_user %>
+      <%= button_to "Edit", edit_recipe_path(@recipe), class:"button", method:"get" %>
+    <% end %>
+    <% if @recipe.user == current_user || current_user.admin?%>
+      <%= button_to "Delete", recipe_path(@recipe), class:"button", method:"delete" %>
+    <% end %>
+  </div>
 </div>
 
 <div class="row">
-  <% if @recipe.user == current_user %>
-    <%= button_to "Brewed!", new_recipe_batch_path(@recipe), class:"button", method:"get", id:"brew" %>
-    <%= link_to "Batches", recipe_batches_path(@recipe) %>
-  <% end %>
-</div>
-
-<div class="container">
   <%= render "details" %>
 </div>
 
-<div class="container">
-  <%= render "ingredients" %>
+<div class="row">
+  <div class="large-6 columns">
+    <%= render "ingredients" %>
+  </div>
+  <div class="large-6 columns">
+    <%= render "instructions" %>
+  </div>
 </div>
 
-<div class="container">
-  <%= render "instructions" %>
-</div>
-
-<div class="container">
+<div class="row">
   <%= render "comments" %>
 </div>
