@@ -6,8 +6,6 @@ class IngredientsController < ApplicationController
     recipe
     @ingredient = Ingredient.new
     @units = Ingredient::UNITS
-    @instruction = Instruction.new
-
     @ingredients = @recipe.ingredients
   end
 
@@ -18,7 +16,6 @@ class IngredientsController < ApplicationController
 
     if @ingredient.save
       flash[:notice] = "Ingredient added."
-      @units = Ingredient::UNITS
       redirect_to new_recipe_ingredient_path(@recipe)
     else
       flash[:alert] = "Please ensure you filled out the form correctly. #{@ingredient.errors.full_messages.join ', '}."

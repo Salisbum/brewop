@@ -1,0 +1,11 @@
+<h1><%= @batch.batch_name %></h1>
+
+Bottles Brewed: <%= @batch.bottle_brewed %> x <%= @batch.bottling_option %>
+
+Bottles Remaining: <%= @batch.bottle_count %>
+
+ <%= link_to "Edit", edit_recipe_batch_path(@batch.recipe.id, @batch.id) %>
+
+ <%= link_to "Back To: #{@batch.recipe.name}", recipe_path(@batch.recipe) %>
+
+ <%= button_to "Delete", recipe_batch_path(@batch.recipe.id, @batch.id), class:"button", method:"delete" %>

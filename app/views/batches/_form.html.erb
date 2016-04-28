@@ -1,0 +1,15 @@
+<%= form_for [@recipe, @batch] do |f| %>
+  <%= f.label :batch_name, "Batch Name" %>
+  <%= f.text_field :batch_name %>
+
+  <%= f.label :bottling_option, "Bottling Option" %>
+  <%= f.select :bottling_option, options_for_select(@bottle_options) %>
+
+  <%= f.label :bottle_brewed, "Bottles Brewed" %>
+  <%= f.text_field :bottle_brewed %>
+
+  <%= f.label :batch_notes, "Batch Notes" %>
+  <%= f.text_area :batch_notes %>
+
+  <%= f.submit "Save" %>
+<% end %>

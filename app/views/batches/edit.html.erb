@@ -1,0 +1,5 @@
+<h3>Edit <%= @batch.batch_name %></h3>
+
+<%= render "form" %>
+
+<%= link_to "Back To: #{@batch.recipe.name}", recipe_path(@batch.recipe) %>

@@ -10,6 +10,18 @@
 
 <div class="container">
   <% if @recipe.user == current_user %>
+    <%= button_to "Brewed!", new_recipe_batch_path(@recipe), class:"button", method:"get", id:"brew" %>
+  <% end %>
+</div>
+
+<div class="container">
+  <% if @recipe.user == current_user %>
+    <%= link_to "Batches", recipe_batches_path(@recipe) %>
+  <% end %>
+</div>
+
+<div class="container">
+  <% if @recipe.user == current_user %>
     <%= button_to "Edit", edit_recipe_path(@recipe), class:"button", method:"get" %>
   <% end %>
 </div>
@@ -17,7 +29,7 @@
 <div class="container">
   <% if @recipe.user == current_user || current_user.admin? %>
     <%= button_to "Delete", recipe_path(@recipe), class:"button", method:"delete" %>
-    <% end %>
+  <% end %>
 </div>
 
 <div class="details">
@@ -75,7 +87,11 @@
       <div class="callout success" id="comment-<%= c.id %>">
         <h4>Note, <%= c.created_at %></h4>
         <span><%= c.body %></span>
-        <%= button_to "Delete Note", api_recipe_comment_path(c.recipe.id, c.id), class:"button", :method => :delete, id:'delete-comment' %>
+        <!-- <%= button_to "Delete Note", api_recipe_comment_path(c.recipe.id, c.id), class:"button", :method => :delete, id:'delete-comment' %> -->
+        <% if @recipe.user == current_user || current_user.admin? %>
+          <%= button_to "Delete", recipe_comment_path(@recipe, c), class:"button", method:"delete" %>
+        <% end %>
+
         <% if @recipe.user == current_user %>
           <%= button_tag "Edit", class: 'edit-comment' %>
           <!-- <div class="update-form" style="display:none"> -->

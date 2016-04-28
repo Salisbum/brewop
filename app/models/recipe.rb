@@ -10,6 +10,7 @@ class Recipe < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   has_many :ingredients, dependent: :destroy
   has_many :instructions, dependent: :destroy
+  has_many :batches, dependent: :destroy
 
   validates :user_id, presence: true
   validates :name, presence: true

@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   has_one :profile, dependent: :destroy
   has_many :ingredients, dependent: :destroy
   has_many :instructions, dependent: :destroy
+  has_many :batches, dependent: :destroy
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20160425145425) do
     t.integer  "recipe_id",       null: false
     t.integer  "user_id",         null: false
     t.integer  "bottle_count",    null: false
+    t.integer  "bottle_brewed",   null: false
     t.string   "batch_name",      null: false
     t.text     "batch_notes",     null: false
   end
