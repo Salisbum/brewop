@@ -1,22 +1,21 @@
-// $(function() {
-//
-//   $(function() {
-//     $(".delete-comment").click(function(event) {
-//       event.preventDefault();
-//
-//       var element = event.target;
-//       var targetUrl = $(this).attr('action');
-//
-//       var request = $.ajax({
-//         method: "DELETE",
-//         url: targetUrl,
-//       });
-//       debugger;
-//       request.done(function(data) {
-//         $(element).parent().parent().remove();
-//       });
-//     });
-//   });
+$(document).ready(function() {
+
+    $(".delete-comment").click(function(event) {
+      event.preventDefault();
+      
+      var element = event.target;
+      var targetUrl = $(this).parent().attr("action");
+
+      var request = $.ajax({
+        method: "DELETE",
+        url: targetUrl,
+        dataType: "json"
+      });
+
+      request.done(function(data) {
+        $(element).parent().parent().remove();
+      });
+    });
 //
 //   $(".edit-comment").click(function(){
 //      $(this).parent().find(".update-form").toggle();
@@ -47,33 +46,35 @@
 //     });
 //   });
 //
-//   $('.new-comment').click(function(){
-//     $(this).parent().find('.add-comment').toggle();
-//   });
-//
-//   $("form#new_comment").submit(function(event) {
-//     event.preventDefault();
-//     var targetUrl = $(this).attr('action');
-//     var newCommentContent = $('#comment_body').val();
-//     var newComment = {
-//       comment: {
-//         body: newCommentContent
-//       }
-//     };
-//
-//     var request = $.ajax({
-//       method: "POST",
-//       data: newComment,
-//       url: targetUrl
-//     });
-//
-//     request.done(function() {
-//       var html = "<div class='callout success'>" +
-//           newCommentContent +
-//         "</div>";
-//
-//       $("div.comments").prepend(html);
-//       $('#comment_body').val("");
-//     });
-//   });
-// });
+  $('.new-comment').click(function(event){
+    event.preventDefault();
+    $(this).parent().find('.add-comment').toggle();
+  });
+
+  $("form#new_comment").submit(function(event) {
+    event.preventDefault();
+    var targetUrl = $(this).attr('action');
+    var newCommentContent = $('#comment_body').val();
+    var newComment = {
+      comment: {
+        body: newCommentContent
+      }
+    };
+
+    var request = $.ajax({
+      method: "POST",
+      data: newComment,
+      dataType: "json",
+      url: "/api" + targetUrl
+    });
+
+    request.done(function(data) {
+      var html = "<div class='callout success' id='newest-comment'>" +
+          data.comment.body +
+        "</div>";
+
+      $("div.comments").prepend(html);
+      $('#comment_body').val("");
+    });
+  });
+});

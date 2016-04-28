@@ -1,4 +1,6 @@
 class Api::CommentsController < ApplicationController
+  respond_to :json, :js
+
   def index
     recipe
     @comments = @recipe.comments.order("created_at DESC")
@@ -13,6 +15,21 @@ class Api::CommentsController < ApplicationController
   def edit
     authorize_user
     @comment = Comment.find(params[:id])
+  end
+
+  def create
+    authorize_user
+    @comment = Comment.new(comment_params)
+    @comment.recipe = recipe
+    @comment.user = current_user
+
+    if @comment.save
+      # flash[:notice] = "Note saved!"
+      render json: { comment: @comment, status: :created }
+    else
+      render json: { errors: @comment.errors, status: :unprocessable_entity }
+      # flash[:alert] = "Note not saved! #{@comment.errors.full_messages.join ', '}."
+    end
   end
 
   def update
@@ -35,7 +52,7 @@ class Api::CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     if current_user == @comment.user || current_user.admin?
       @comment.destroy
-      render json: nil, status: :ok
+        render json: { status: :ok }
     else
       render json: @comment.errors,
         status: :unprocessable_entity

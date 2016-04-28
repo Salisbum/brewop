@@ -1,0 +1,10 @@
+<h2>The Boil</h2>
+<p>
+   <%= link_to "New Boil Addition", new_recipe_instruction_path(@recipe) %>
+</p>
+
+<div class="details" id="details">
+  <% @instructions.each do |i| %>
+    <li><%= i.add_point %> | <%= i.temperature %> | <%= i.quantity %> <%= i.unit %> | <%= link_to i.ingredient.item, recipe_instruction_path(i.recipe.id, i.id) %></li>
+  <% end %>
+</div>

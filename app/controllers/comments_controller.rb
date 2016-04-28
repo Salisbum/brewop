@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :authorize_user, only: [:edit]
+  respond_to :html, :js, :json
 
   def create
     @comment = Comment.new(comment_params)
@@ -11,6 +12,7 @@ class CommentsController < ApplicationController
     else
       flash[:alert] = "Note not saved! #{@comment.errors.full_messages.join ', '}."
     end
+
     redirect_to recipe_path(recipe)
   end
 

@@ -1,16 +1,16 @@
 ENV['RAILS_ENV'] ||= 'test'
 
-require "spec_helper"
-require "rspec/rails"
-require "capybara/rails"
+require File.expand_path('../../config/environment', __FILE__)
+
 require "capybara/rspec"
+require "rspec/rails"
+require "spec_helper"
+require "capybara/rails"
 require "capybara/poltergeist"
 require "pry"
 require "support/factories"
 require "support/helpers"
 require "support/database_cleaner"
-
-File.expand_path('../../config/environment', __FILE__)
 
 Dir[Rails.root.join("spec/support/*.rb")].each { |f| require f }
 
