@@ -31,7 +31,7 @@ class Api::CommentsController < ApplicationController
 
   def destroy
     authorize_user
-    binding.pry
+
     @comment = Comment.find(params[:id])
     if current_user == @comment.user || current_user.admin?
       @comment.destroy
