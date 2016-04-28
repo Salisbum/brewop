@@ -90,12 +90,12 @@ class BatchesController < ApplicationController
   end
 
   def authorize_user
-    unless recipe.nil?
-      unless current_user.admin? || current_user == @recipe.user
+    if recipe.nil?
+      unless current_user.admin? || user_signed_in?
         redirect_to root_path
       end
     else
-      unless current_user.admin? || user_signed_in?
+      unless current_user.admin? || current_user == @recipe.user
         redirect_to root_path
       end
     end
