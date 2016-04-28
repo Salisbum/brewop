@@ -22,7 +22,7 @@ feature "authenticated user adds new recipe" do
 
     click_link "Recipes"
 
-    click_link "Add New Recipe"
+    click_on "Add New Recipe"
 
     fill_in "Recipe Name", with: "Super Hefe"
     fill_in "Description", with: "Tasty fruity hefe."
