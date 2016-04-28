@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   authenticate :user do
     resources :profiles
+    resources :batches
 
     get "/admin/:page", to: "admins#show"
 

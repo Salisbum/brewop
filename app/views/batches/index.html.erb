@@ -1,0 +1,10 @@
+<h1>Batches</h1>
+<% if params[:recipe_id].nil? %>
+  <% @all_batches.each do |b| %>
+    <li><%= link_to b.batch_name, batch_path(b) %></li>
+  <% end %>
+<% else %>
+  <% @recipe_batches.each do |b| %>
+    <li><%= link_to b.batch_name, batch_path(b) %></li>
+  <% end %>
+<% end %>

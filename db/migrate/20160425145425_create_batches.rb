@@ -6,6 +6,7 @@ class CreateBatches < ActiveRecord::Migration
       t.belongs_to :recipe, null: false
       t.belongs_to :user, null: false
       t.integer :bottle_count, null: false
+      t.integer :bottle_brewed, null: false
       t.string :batch_name, null: false
       t.text :batch_notes, null: false
     end
