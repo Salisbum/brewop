@@ -12,8 +12,7 @@
 # =end
 #
 # feature "User creates a note on a recipe" do
-#   scenario "User correctly creates a new note on a recipe", js: true do
-#     pending
+#   scenario "User correctly creates a new note on a recipe", js: true, focus: true do
 #
 #     user = FactoryGirl.create(:user)
 #     FactoryGirl.create(:profile, user: user)
@@ -25,11 +24,14 @@
 #
 #     click_link recipe.name
 #
-#     find(".new").trigger("click")
+#     find(".new-comment").trigger("click")
 #
-#     fill_in 'Note', with: 'Turned out well, could have bottled earlier.'
-#
+#     fill_in "comment[body]", with: 'Turned out well, could have bottled earlier.'
 #     click_on "Submit Note"
+#     # binding.pry
+# #
+#     # find("#newest-comment")
+#     sleep(5)
 #
 #     expect(page).to have_content "Turned out well, could have bottled earlier."
 #   end

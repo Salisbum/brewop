@@ -14,13 +14,13 @@ gem 'faker'
 gem 'carrierwave', '~> 0.10.0'
 gem 'mini_magick', '~> 4.3'
 gem 'fog'
+gem 'pry-rails'
 
 group :development, :test do
-  gem 'byebug'
+  # gem 'byebug'
   gem 'capybara'
   gem 'rspec-rails', '~> 3.0'
   gem 'spring'
-  gem 'pry-rails'
   gem 'launchy'
   gem 'factory_girl_rails'
   gem 'dotenv-rails'
@@ -31,7 +31,8 @@ gem 'web-console', group: :development
 group :test do
   gem 'coveralls', require: false
   gem 'orderly'
-  gem 'pry-byebug'
+  # gem 'pry-byebug'
   gem 'poltergeist'
   gem 'database_cleaner'
+  gem 'phantomjs', require: 'phantomjs/poltergeist'
 end

@@ -1,0 +1,21 @@
+<div class="container">
+  Added: <%= @recipe.created_at %>
+</div>
+
+<div class="container">
+  Last Updated: <%= @recipe.updated_at %>
+</div>
+
+<div class="container">
+  <h2>Beer Type</h2>
+  <div class="details" id="details">
+    <%= @recipe.beer_type %>
+  </div>
+</div>
+
+<div class="container">
+  <h2>Description</h2>
+  <div class="details" id="details">
+    <%= @recipe.description %>
+  </div>
+</div>

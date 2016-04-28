@@ -3,7 +3,14 @@ class Recipe < ActiveRecord::Base
     ["IPA", "IPA"],
     ["Hefeweizen", "Hefeweizen"],
     ["Amber Ale", "Amber Ale"],
-    ["Saison", "Saison"]
+    ["Saison", "Saison"],
+    ["Bitter", "Bitter"],
+    ["Pale Ale", "Pale Ale"],
+    ["Stout", "Stout"],
+    ["Porter", "Porter"],
+    ["Pilsner", "Pilsner"],
+    ["Cider", "Cider"],
+    ["Lambic", "Lambic"]
   ]
 
   belongs_to :user

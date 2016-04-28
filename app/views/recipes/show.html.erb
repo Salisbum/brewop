@@ -1,111 +1,35 @@
-<h1> <%= @recipe.name %> </h1>
+<div class="row">
+  <h1> <%= @recipe.name %> </h1>
 
-<div class="container">
-  Added: <%= @recipe.created_at %>
+  <% if @recipe.user == current_user %>
+    <%= button_to "Edit", edit_recipe_path(@recipe), class:"button", method:"get" %>
+  <% end %>
+
+  <% if @recipe.user == current_user || current_user.admin?%>
+    <%= button_to "Delete", recipe_path(@recipe), class:"button", method:"delete" %>
+  <% end %>
+
 </div>
 
-<div class="container">
-  Last Updated: <%= @recipe.updated_at %>
-</div>
-
-<div class="container">
+<div class="row">
   <% if @recipe.user == current_user %>
     <%= button_to "Brewed!", new_recipe_batch_path(@recipe), class:"button", method:"get", id:"brew" %>
-  <% end %>
-</div>
-
-<div class="container">
-  <% if @recipe.user == current_user %>
     <%= link_to "Batches", recipe_batches_path(@recipe) %>
   <% end %>
 </div>
 
 <div class="container">
-  <% if @recipe.user == current_user %>
-    <%= button_to "Edit", edit_recipe_path(@recipe), class:"button", method:"get" %>
-  <% end %>
+  <%= render "details" %>
 </div>
 
 <div class="container">
-  <% if @recipe.user == current_user || current_user.admin? %>
-    <%= button_to "Delete", recipe_path(@recipe), class:"button", method:"delete" %>
-  <% end %>
-</div>
-
-<div class="details">
-  <h2>Beer Type</h2>
-  <div class="details" id="details">
-    <%= @recipe.beer_type %>
-  </div>
-</div>
-
-<div class="details">
-  <h2>Description</h2>
-  <div class="details" id="details">
-    <%= @recipe.description %>
-  </div>
-</div>
-
-<div class="details">
-  <h2>Ingredients</h2>
-  <p>
-     <%= link_to "New Ingredient", new_recipe_ingredient_path(@recipe) %>
-  </p>
-  <div class="details" id="details">
-    <% @ingredients.each do |i| %>
-      <li><%= i.quantity %> <%= i.unit %> | <%= link_to i.item, recipe_ingredient_path(i.recipe.id, i.id) %></li>
-    <% end %>
-  </div>
-</div>
-
-<div class="details">
-  <h2>The Boil</h2>
-  <p>
-     <%= link_to "New Boil Addition", new_recipe_instruction_path(@recipe) %>
-  </p>
-
-  <div class="details" id="details">
-    <% @instructions.each do |i| %>
-      <li><%= i.add_point %> | <%= i.temperature %> | <%= i.quantity %> <%= i.unit %> | <%= link_to i.ingredient.item, recipe_instruction_path(i.recipe.id, i.id) %></li>
-    <% end %>
-  </div>
+  <%= render "ingredients" %>
 </div>
 
 <div class="container">
-  <% if @recipe.user == current_user %>
-  <%= button_tag "New Note", class: 'new-comment' %>
-    <!-- <div class="add-comment" style="display:none"> -->
-      <%= render '/comments/form' %>
-    <!-- </div> -->
-  <% end %>
+  <%= render "instructions" %>
+</div>
 
-  <% if @comments.empty? %>
-    No notes yet!
-  <% else %>
-    <div class="comments">
-      <% @comments.each do |c| %>
-      <div class="callout success" id="comment-<%= c.id %>">
-        <h4>Note, <%= c.created_at %></h4>
-        <span><%= c.body %></span>
-        <!-- <%= button_to "Delete Note", api_recipe_comment_path(c.recipe.id, c.id), class:"button", :method => :delete, id:'delete-comment' %> -->
-        <% if @recipe.user == current_user || current_user.admin? %>
-          <%= button_to "Delete", recipe_comment_path(@recipe, c), class:"button", method:"delete" %>
-        <% end %>
-
-        <% if @recipe.user == current_user %>
-          <%= button_tag "Edit", class: 'edit-comment' %>
-          <!-- <div class="update-form" style="display:none"> -->
-            <%= form_for [@recipe, c], method: 'put' do |f| %>
-              <%= f.label :body, "Note: " %>
-              <%= f.text_area :body %>
-              <%= f.hidden_field(:id, value: c.id) %>
-
-              <%= f.submit "Edit Note", class: "button" %>
-            <% end %>
-          <!-- </div> -->
-        <% end %>
-      </div>
-      <% end %>
-    </div>
-  <% end %>
+<div class="container">
+  <%= render "comments" %>
 </div>

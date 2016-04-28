@@ -1,16 +1,26 @@
-<h1>Your Recipes</h1>
+<div class="row">
+  <div class="small-2 large-4 columns">
+    <h1>Your Recipes</h1>
+  </div>
 
-<div class="container">
-  <%= link_to "Add New Recipe", new_recipe_path %>
+  <div class="small-2 large-3 columns", id="new-recipe">
+    <%= button_to "Add New Recipe", new_recipe_path, class:"button", id:"new-resource" %>
+  </div>
 </div>
 
-<div class="container">
+<div class="row">
   <% if @recipes.empty? %>
     No recipes yet!
-    <% else %>
-      <div id="menu">
-        <% @recipes.each do |recipe| %>
+  <% else %>
+    <% @recipes.each do |recipe| %>
+      <div class="row", id="recipe-list">
+        <div class="small-4 columns", id="recipe-title">
           <li><%= link_to recipe.name, recipe_path(recipe) %></li>
-        <% end %>
+        </div>
+        <div class="small-8 columns">
+          <%= recipe.beer_type %>, <%= recipe.description %>
+        </div>
       </div>
+    <% end %>
   <% end %>
+</div>

@@ -18,16 +18,16 @@ FactoryGirl.define do
     user
     ingredient
     unit "OZ"
-    quantity "4"
-    add_point "30"
-    temperature "120"
+    quantity 4
+    add_point 30
+    temperature "120F"
   end
 
   factory :ingredient do
     recipe
     user
     unit "LBS"
-    quantity "4"
+    quantity 4
     sequence(:item) { |n| "item#{n}" }
   end
 
@@ -35,6 +35,16 @@ FactoryGirl.define do
     user
     recipe
     sequence(:body) { |n| "#{n} comment, fo shizzle." }
+  end
+
+  factory :batch do
+    user
+    recipe
+    sequence(:batch_name) { |n| "#{n} BATCH" }
+    bottling_option "22OZ"
+    bottle_count 22
+    bottle_brewed 25
+    batch_notes "Yummy."
   end
 
   factory :profile do
