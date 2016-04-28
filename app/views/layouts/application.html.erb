@@ -12,24 +12,25 @@
   </head>
 
   <body>
-    <div class="top-bar">
-      <div class ="top-bar-left">
-        <ul class="menu">
-          <li>
-            <a href="/"><h1>BrewOp</h1></a>
-          </li>
-        </ul>
-      </div>
+    <div>
+      <div class="top-bar">
+        <div class ="top-bar-left">
+          <ul class="menu">
+            <li>
+              <a href="/"><h1>BrewOp</h1></a>
+            </li>
+          </ul>
+        </div>
 
-      <div class="top-bar-right">
-        <ul class="menu">
-          <% if user_signed_in? %>
-          <li>
-            <% unless current_user.profile.username.empty? %>
+        <div class="top-bar-right">
+          <ul class="menu">
+            <% if user_signed_in? %>
+            <li>
+              <% unless current_user.profile.username.empty? %>
               Welcome: <%= current_user.profile.username %>
-            <% else %>
+              <% else %>
               Welcome: <%= current_user.email %>
-            <% end %>
+              <% end %>
             </li>
             <li><a href="/home/dashboard">Dashboard</a></li>
             <li>
@@ -39,41 +40,42 @@
               <%= link_to('Inventory', batches_path) %>
             </li>
             <li>
-                <%= link_to('Account', profile_path(current_user.profile.id), class: "color-white") %>
+              <%= link_to('Account', profile_path(current_user.profile.id), class: "color-white") %>
             </li>
             <li>
               <%= link_to('Logout', destroy_user_session_path, :method => :delete, class: "color-white") %>
             </li>
-          <% end %>
+            <% end %>
 
-          <% unless user_signed_in? %>
+            <% unless user_signed_in? %>
             <li>
               <%= link_to('Sign Up', new_user_registration_path, class: "color-white")  %>
             </li>
             <li>
               <%= link_to('Login', new_user_session_path, class: "color-white")  %>
             </li>
-          <% end %>
+            <% end %>
 
-          <% if user_signed_in? && current_user.admin? %>
-          <li><a href="/admin/dashboard">Admin Dashboard</a></li>
-          <% end %>
+            <% if user_signed_in? && current_user.admin? %>
+            <li><a href="/admin/dashboard">Admin Dashboard</a></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+        <%= yield %>
+      </div>
+
+      <div class="footer">
+        <ul class="menu">
+          <li><a href="/home/about">About</a></li>
+          <li><a href="/home/feedback">Feedback</a></li>
+          <li><a href="/home/brewbies">Brewbies</a></li>
         </ul>
       </div>
-    </div>
-
-    <div class="row">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-      <%= yield %>
-    </div>
-
-    <div class="footer">
-      <ul class="menu">
-        <li><a href="/home/about">About</a></li>
-        <li><a href="/home/feedback">Feedback</a></li>
-        <li><a href="/home/brewbies">Brewbies</a></li>
-      </ul>
     </div>
   </body>
 </html>
