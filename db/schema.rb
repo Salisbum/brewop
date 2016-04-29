@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20160425145425) do
     t.integer "recipe_id", null: false
     t.integer "user_id",   null: false
     t.string  "unit",      null: false
-    t.integer "quantity",  null: false
+    t.float   "quantity",  null: false
     t.string  "item",      null: false
   end
 
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 20160425145425) do
     t.integer "ingredient_id"
     t.integer "user_id",       null: false
     t.string  "unit",          null: false
-    t.integer "quantity",      null: false
+    t.float   "quantity",      null: false
     t.integer "add_point",     null: false
     t.string  "temperature"
     t.string  "details"

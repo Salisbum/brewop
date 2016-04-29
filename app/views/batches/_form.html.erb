@@ -1,4 +1,5 @@
-<%= form_for [@recipe, @batch] do |f| %>
+<div class="row">  
+  <%= form_for [@recipe, @batch] do |f| %>
   <%= f.label :batch_name, "Batch Name" %>
   <%= f.text_field :batch_name %>
 
@@ -11,5 +12,6 @@
   <%= f.label :batch_notes, "Batch Notes" %>
   <%= f.text_area :batch_notes %>
 
-  <%= f.submit "Save" %>
-<% end %>
+  <%= f.submit "Save", class:"button"  %>
+  <% end %>
+</div>

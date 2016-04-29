@@ -12,13 +12,13 @@ tester = User.create(
 Profile.create(
   username: "Admin",
   location: "Boston, MA",
-  user: user_admin
+  user_id: user_admin.id
 )
 
 Profile.create(
   username: "Tester",
   location: "Boston, MA",
-  user: tester
+  user_id: tester.id
 )
 
 recipe = Recipe.create(
@@ -32,7 +32,7 @@ ing1 = Ingredient.create(
   recipe: recipe,
   user: tester,
   unit: "OZ",
-  quantity: 4,
+  quantity: 4.0,
   item: "10| Crystal Malt"
 )
 
@@ -48,7 +48,7 @@ ing3 = Ingredient.create(
   recipe: recipe,
   user: tester,
   unit: "OZ",
-  quantity: 2,
+  quantity: 2.0,
   item: "Centennial Hops"
 )
 
@@ -56,7 +56,7 @@ ing4 = Ingredient.create(
   recipe: recipe,
   user: tester,
   unit: "OZ",
-  quantity: 4,
+  quantity: 4.0,
   item: "Cascade Hops"
 )
 
@@ -65,7 +65,7 @@ Instruction.create(
   user: tester,
   ingredient: ing1,
   unit: "OZ",
-  quantity: 4,
+  quantity: 4.0,
   add_point: 30,
   temperature: "150-170F"
 )
@@ -85,7 +85,7 @@ Instruction.create(
   user: tester,
   ingredient: ing3,
   unit: "OZ",
-  quantity: 1,
+  quantity: 1.0,
   add_point: 10,
   temperature: "Boil"
 )
@@ -95,7 +95,7 @@ Instruction.create(
   user: tester,
   ingredient: ing4,
   unit: "OZ",
-  quantity: 1,
+  quantity: 1.0,
   add_point: 10,
   temperature: "Boil"
 )

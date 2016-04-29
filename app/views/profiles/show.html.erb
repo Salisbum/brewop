@@ -1,25 +1,30 @@
-<div class="profile_options">
-  ​
-  <% if current_user == @profile.user %>
-  <div class="edit_profile">
-    <%= link_to "Edit Profile", edit_profile_path %>
+<div class="row">
+  <div class="row new-resource">
+    <div class="large-6 columns">
+      <h2> <%= @profile.username %> </h2>
+    </div>
+    ​
+    <% if current_user == @profile.user %>
+      <div class="large-6 columns">
+        <div class="edit_profile small-6 columns">
+          <%= link_to("Edit Profile", edit_profile_path, class:"button") %>
+        </div>
+        ​
+        <div class="edit_registration small-6 columns">
+          <%= link_to('Edit Account Information', edit_user_registration_path, class:"button") %>
+        </div>
+      </div>
+    ​<% end %>
   </div>
-  ​
-  <div class="edit_registration">
-    <%= link_to('Edit Account Information', edit_user_registration_path) %>
+  <div class="row">
+    <div class="large-6 columns">
+      <%= image_tag "#{@profile.avatar_url.thumb.url}", class:"image" %>
+    </div>
+    <div class="large-6 columns">      
+      <p>Email: <%= @user.email %></p>
+      <p>Brewop Name: <%= @profile.brewop_name %></p>
+      <p>Location: <%= @profile.location %></p>
+    </div>
   </div>
-  ​<% end %>
-
-
-  <div class="title">
-    <h3> <%= @profile.username %> </h3>
-  </div>
-
 </div>
-
-
-  <p><%= image_tag "#{@profile.avatar_url.thumb.url}" %></p>
-  <p>Username: <%= @profile.username %></p>
-  <p>Email: <%= @user.email %></p>
-  <p>Brewop Name: <%= @profile.brewop_name %></p>
-  <p>Location: <%= @profile.location %></p>
+</div>
