@@ -3,7 +3,7 @@
     <h3>Current Boil Additions:</h3>
     <% @instructions.each do |i| %>
       <li>
-        <%= i.ingredient.item %>: <%= i.quantity %> | <%= i.unit %>
+        <%= i.ingredient.item %>: <%= i.quantity.to_f %> | <%= i.unit %>
       </li>
     <% end %>
   <% end %>
@@ -12,7 +12,5 @@
 
   <%= render "instructions/form" %>
 
-  <div class="row link">
     <%= link_to "Back To: #{@recipe.name}", recipe_path(@recipe) %>
-  </div>
 </div>

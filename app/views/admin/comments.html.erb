@@ -7,7 +7,7 @@
   <% else %>
     <% @admin_comments.each do |note| %>
       User: <%= note.user.email %> | <%= note.body %>
-      <%= button_to "Delete Note", recipe_comment_path(note.recipe.id, note.id), class:"button", method:"delete" %>
+      <%= button_to "Delete Note", recipe_comment_path(note.recipe.id, note.id), class:"button warning", method:"delete" %>
     <% end %>
   <% end %>
 <% else %>

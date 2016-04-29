@@ -1,22 +1,23 @@
+<div class="row">
   <div class="row recipe-title">
-    <div class="large-6 columns menu">
+    <div class="large-6 columns menu new-resource">
       <h1> <%= @recipe.name %> </h1>
       <% if @recipe.user == current_user %>
-      <li><%= button_to "Brewed!", new_recipe_batch_path(@recipe), class:"button", method:"get", id:"brew" %></li>
-      <li><%= link_to "Batches", recipe_batches_path(@recipe) %></li>
+        <li><%= button_to "Brewed!", new_recipe_batch_path(@recipe), class:"button success", method:"get" %></li>
+        <li><%= link_to "Batches", recipe_batches_path(@recipe) %></li>
       <% end %>
     </div>
-    <div class="small-12 large-1 columns">
+    <div class="small-12 large-1 columns" id="recipe-title">
       <% if @recipe.user == current_user %>
-      <%= button_to "Edit", edit_recipe_path(@recipe), class:"button", method:"get" %>
+        <%= button_to "Edit", edit_recipe_path(@recipe), class:"button", method:"get" %>
       <% end %>
       <% if @recipe.user == current_user || current_user.admin?%>
-      <%= button_to "Delete", recipe_path(@recipe), class:"button", method:"delete" %>
+        <%= button_to "Delete", recipe_path(@recipe), class:"button warning", method:"delete" %>
       <% end %>
     </div>
   </div>
 
-  <div class="row">
+  <div class="row details">
     <%= render "details" %>
   </div>
 
@@ -32,3 +33,4 @@
   <div class="row">
     <%= render "comments" %>
   </div>
+</div>
