@@ -57,10 +57,11 @@ $foundation-palette: (
   warning: #a43e32,
   alert: #ede9ce,
 );
-$primary: #30231d;
-$secondary: #6a5750;
-$tertiary: #f6f1ed;
-$quaternary: #b5a397;
+$primary: #bc9617;
+$secondary: #efcf65;
+$tertiary: #894e03;
+$quaternary: #298D96;
+$quinary: #17bc9c;
 $success: #c7ad88;
 $warning: #a43e32;
 $alert: #ede9ce;
@@ -69,7 +70,7 @@ $medium-gray: #cacaca;
 $dark-gray: #8a8a8a;
 $black: #0a0a0a;
 $white: #fefefe;
-$body-background: $tertiary;
+$body-background: map-get($foundation-palette, tertiary);
 $body-font-color: $black;
 $body-font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
 $body-antialiased: true;
