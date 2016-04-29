@@ -1,0 +1,33 @@
+@import 'settings';
+@import 'foundation';
+
+#centre-loggedin {
+  padding-top: 6%;
+}
+
+#centre-loggedout {
+  padding-top: 17%;
+}
+
+.notice {
+  margin-bottom: 0;
+  text-align: center;
+  height: 10%;
+  background-color: map-get($foundation-palette, success);
+}
+
+.alert {
+  margin-bottom: 0;
+  text-align: center;
+  height: 10%;
+  background-color: map-get($foundation-palette, alert);
+}
+
+
+.footer {
+  background-color: $quaternary;
+  margin-bottom: 0;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+  }

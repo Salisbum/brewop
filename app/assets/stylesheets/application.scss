@@ -18,4 +18,19 @@
 
  @import 'settings';
  @import 'foundation';
- @import 'layout';
+
+.primary-layout {
+  @import "components/_primary-layout";
+}
+
+.static-page {
+  @import "components/_static-page";
+}
+
+.recipes {
+  @import "components/_recipes";
+}
+
+.link-thick {
+  font-weight: bold;
+}
