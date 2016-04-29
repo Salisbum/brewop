@@ -4,7 +4,7 @@ class CreateIngredients < ActiveRecord::Migration
       t.belongs_to :recipe, null: false
       t.belongs_to :user, null: false
       t.string :unit, null: false
-      t.integer :quantity, null: false
+      t.float :quantity, null: false
       t.string :item, null: false
     end
   end

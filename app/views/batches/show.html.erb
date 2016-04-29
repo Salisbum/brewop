@@ -1,11 +1,19 @@
-<h1><%= @batch.batch_name %></h1>
+<div class="row">
+  <h1><%= @batch.batch_name %></h1>
 
-Bottles Brewed: <%= @batch.bottle_brewed %> x <%= @batch.bottling_option %>
+  <div class="row">
+    <div class="large-6 columns">
+      <p>Bottles Brewed: <%= @batch.bottle_brewed %> x <%= @batch.bottling_option %></p>
 
-Bottles Remaining: <%= @batch.bottle_count %>
+      <p>Bottles Remaining: <%= @batch.bottle_count %></p>
+    </div>
+    <div class="large-6 columns">
+      <%= link_to "Edit", edit_recipe_batch_path(@batch.recipe.id, @batch.id), class:"button" %>
 
- <%= link_to "Edit", edit_recipe_batch_path(@batch.recipe.id, @batch.id) %>
+      <%= button_to "Delete", recipe_batch_path(@batch.recipe.id, @batch.id), class:"button warning", method:"delete" %>
+    </div>
 
- <%= link_to "Back To: #{@batch.recipe.name}", recipe_path(@batch.recipe) %>
+  </div>
+  <%= link_to "Back To: #{@batch.recipe.name}", recipe_path(@batch.recipe) %>
 
- <%= button_to "Delete", recipe_batch_path(@batch.recipe.id, @batch.id), class:"button", method:"delete" %>
+</div>

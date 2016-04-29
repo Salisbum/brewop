@@ -1,8 +1,19 @@
-<div class="static-page">
-<h1><%= current_user.profile.brewop_name %></h1>
+<div class="row static-page">
+  <h1 class="static-header">
+    <div class="small-6 large-centered columns">
+      <%= current_user.profile.brewop_name %>
+    </div>
+  </h1>
 
-<h2>Homebrewing Summary</h2>
-Recipes: <%= current_user.recipes.count %>
+<div class="row stats">  
+  Recipes: <%= current_user.recipes.count %>
+</div>
 
-<h2>Activity</h2>
+  <div class="row">
+    <h3 id="sub-header">
+      <div class="small-6 large-centered columns">
+        Activity
+      </div>
+    </h3>
+  </div>
 </div>

@@ -41,4 +41,16 @@
   height: 85%;
   position: absolute;
   margin: 0;
+
+ .custom-forms {
+   @import "components/_custom-forms";
+ }
+
+.row {
+  padding-bottom: 5%;
+}
+
+.new-resource {
+  padding-top: 2%;
+  margin-bottom: 0;
 }
