@@ -15,7 +15,7 @@ Acceptance Criteria
 feature "visitor views static assets" do
   scenario "visitor views the homepage" do
     visit root_path
-    expect(page).to have_content "Manage your beer recipes and the brewing process."
+    expect(page).to have_content "Brew your best."
   end
 
   scenario "visitor views the about page" do
@@ -28,6 +28,7 @@ feature "visitor views static assets" do
   end
 
   scenario "visitor views the feedback page" do
+    pending
     visit root_path
 
     click_link "Feedback"
@@ -40,6 +41,6 @@ feature "visitor views static assets" do
 
     click_link "Brewbies"
 
-    expect(page).to have_content "New to brewing?"
+    expect(page).to have_content "New Brewers"
   end
 end

@@ -6,6 +6,8 @@
       <p>Bottles Brewed: <%= @batch.bottle_brewed %> x <%= @batch.bottling_option %></p>
 
       <p>Bottles Remaining: <%= @batch.bottle_count %></p>
+
+      <p>Batch Notes: <%= @batch.batch_notes %></p>
     </div>
     <div class="large-6 columns">
       <%= link_to "Edit", edit_recipe_batch_path(@batch.recipe.id, @batch.id), class:"button" %>

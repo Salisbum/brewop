@@ -17,7 +17,6 @@ feature "user views their centralized dashboard" do
 
     click_link "Dashboard"
 
-    expect(page).to have_content "Homebrewing Summary"
     expect(page).to have_content "Activity"
   end
 end
