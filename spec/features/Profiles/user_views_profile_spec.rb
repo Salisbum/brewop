@@ -13,6 +13,6 @@ feature "new user views to their profile page" do
     expect(page).to have_content profile.username
     expect(page).to have_content profile.brewop_name
     expect(page).to have_content profile.location
-    page.should have_selector ("img[src$='#{profile.avatar_url}']")
+    expect(page).to have_selector ("img[src$='#{profile.avatar_url}']")
   end
 end

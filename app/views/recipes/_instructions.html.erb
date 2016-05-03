@@ -4,7 +4,9 @@
 </p>
 
 <div class="details" id="details">
+  <% n = 0 %>
   <% @instructions.each do |i| %>
-    <li><%= i.add_point %> | <%= i.temperature %> | <%= i.quantity %> <%= i.unit %> | <%= link_to i.ingredient.item, recipe_instruction_path(i.recipe.id, i.id) %></li>
+    <% n += 1 %>
+    <%= link_to n, recipe_instruction_path(i.recipe.id, i.id) %>: <%= i.add_point %> | <%= i.temperature %> | <%= i.quantity %> <%= i.unit %> | <%= i.ingredient.item %><br>
   <% end %>
 </div>

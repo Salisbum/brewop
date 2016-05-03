@@ -1,6 +1,10 @@
 class IngredientsController < ApplicationController
   before_action :authorize_user
 
+  def index
+    redirect_to recipe_path(@recipe)
+  end
+
   def new
     authorize_user
     recipe

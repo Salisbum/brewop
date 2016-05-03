@@ -1,13 +1,14 @@
 <%= form_for [@recipe, @instruction] do |f| %>
+  <%= f.label :ingr_id, "Ingredient (required)" %>
   <%= collection_select(:ingr_id, 0, @ingredients, :id, :item) %>
 
-  <%= f.label :unit, "Unit" %>
+  <%= f.label :unit, "Unit (required)" %>
   <%= f.select :unit, options_for_select(@units) %>
 
-  <%= f.label :quantity, "Quantity" %>
+  <%= f.label :quantity, "Quantity (required)" %>
   <%= f.text_field :quantity %>
 
-  <%= f.label :add_point, "Time Into Boil (min)" %>
+  <%= f.label :add_point, "Time Into Boil (min) (required)" %>
   <%= f.text_field :add_point %>
 
   <%= f.label :temperature, "Temperature" %>
