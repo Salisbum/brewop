@@ -27,14 +27,14 @@ feature "visitor views static assets" do
     expect(page).to have_content "I'm a homebrewer who also happens to be a web developer."
   end
 
-  scenario "visitor views the feedback page" do
-    pending
-    visit root_path
-
-    click_link "Feedback"
-
-    expect(page).to have_content "Want to leave feedback?"
-  end
+  # scenario "visitor views the feedback page" do
+  #   pending
+  #   visit root_path
+  #
+  #   click_link "Feedback"
+  #
+  #   expect(page).to have_content "Want to leave feedback?"
+  # end
 
   scenario "visitor views the newbies page" do
     visit root_path

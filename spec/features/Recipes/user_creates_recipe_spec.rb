@@ -29,6 +29,10 @@ feature "authenticated user adds new recipe" do
     select "Hefeweizen", from: "Beer Type"
     click_on "Save"
 
+    expect(page).to have_content "New Ingredient"
+
+    click_on "Super Hefe"
+
     expect(page).to have_content "Super Hefe"
   end
 

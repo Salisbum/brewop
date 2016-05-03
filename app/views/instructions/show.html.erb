@@ -1,9 +1,11 @@
- <h1> <%= @instruction.ingredient.item %> Directions </h1>
+<div class="row">
+  <h1> <%= @instruction.ingredient.item %> Directions </h1>
 
- Total Quantity: <%= @instruction.quantity.to_f %> <%= @instruction.unit %>
+  Total Quantity: <%= @instruction.quantity.to_f %> <%= @instruction.unit %>
 
-  <%= link_to "Edit", edit_recipe_instruction_path(@instruction.recipe.id, @instruction.id) %>
+  <%= link_to "Edit", edit_recipe_instruction_path(@instruction.recipe.id, @instruction.id), class:"button" %>
+  
+  <%= button_to "Delete", recipe_instruction_path(@instruction.recipe.id, @instruction.id), class:"button warning", method:"delete" %>
 
   <%= link_to "Back To: #{@instruction.recipe.name}", recipe_path(@instruction.recipe) %>
-
-  <%= button_to "Delete", recipe_instruction_path(@instruction.recipe.id, @instruction.id), class:"button warning", method:"delete" %>
+</div>
