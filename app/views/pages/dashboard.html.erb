@@ -1,11 +1,15 @@
 <div class="row static-page">
   <h1 class="static-header">
     <div class="small-6 large-centered columns">
-      <%= current_user.profile.brewop_name %>
+      <h1><%= current_user.profile.brewop_name %></h1>
+    </div>
+    <div class="small-6 large-centered columns">
+      <h2>Homebrewing Summary</h2>
     </div>
   </h1>
+</div>
 
-<div class="row stats">  
+<div class="row stats">
   Recipes: <%= current_user.recipes.count %>
 </div>
 

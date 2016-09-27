@@ -17,7 +17,7 @@ feature "User logs in" do
   scenario "user unsuccessfully logs in" do
     user = FactoryGirl.create(:user)
     FactoryGirl.create(:profile, user: user)
-    
+
     visit root_path
 
     click_link "Login"
@@ -27,6 +27,6 @@ feature "User logs in" do
 
     click_on "Log in"
 
-    expect(page).to have_content("Invalid email or password.")
+    expect(page).to have_content("Invalid Email or password.")
   end
 end
