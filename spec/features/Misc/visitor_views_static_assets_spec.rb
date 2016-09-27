@@ -35,6 +35,7 @@ feature "visitor views static assets" do
     expect(page).to have_content "Want to leave feedback?"
   end
 
+
   scenario "visitor views the newbies page" do
     visit root_path
 

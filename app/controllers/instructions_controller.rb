@@ -1,6 +1,10 @@
 class InstructionsController < ApplicationController
   before_action :authorize_user
 
+  def index
+    redirect_to recipe_path(@recipe)
+  end
+
   def new
     authorize_user
     recipe
@@ -39,6 +43,8 @@ class InstructionsController < ApplicationController
   end
 
   def update
+    @units = Ingredient::UNITS
+    @ingredients = @recipe.ingredients
     instruction
     recipe
     if current_user == @recipe.user || current_user.admin?
@@ -47,7 +53,6 @@ class InstructionsController < ApplicationController
         redirect_to recipe_instruction_path(@recipe, @instruction)
       else
         flash[:alert] = "Please ensure you filled out the form correctly. #{@instruction.errors.full_messages.join ', '}."
-        @units = Ingredient::UNITS
         render :edit
       end
     end

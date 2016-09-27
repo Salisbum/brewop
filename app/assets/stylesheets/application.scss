@@ -34,6 +34,15 @@
 .link-thick {
   font-weight: bold;
 }
+
+.background {
+  background-image: url("background_image_brewop.jpg");
+  width: 100%;
+  height: 85%;
+  position: absolute;
+  margin: 0;
+}
+
  .custom-forms {
    @import "components/_custom-forms";
  }

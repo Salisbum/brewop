@@ -41,7 +41,7 @@ feature "user edits their profile" do
     fill_in "Username", with: "BillyBob"
     fill_in "Location", with: "France"
     fill_in "Brewop Name", with: "Puntilly Brews"
-    attach_file "Avatar url", "#{Rails.root}/spec/support/images/person.jpg"
+    attach_file "Select Avatar", "#{Rails.root}/spec/support/images/person.jpg"
 
     click_button "Update Profile"
 
