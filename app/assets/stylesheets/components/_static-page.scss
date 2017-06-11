@@ -1,10 +1,6 @@
-@import 'settings';
-@import 'foundation';
-
 .home-header {
   text-align: center;
   padding-top: 5%;
-  color: map-get($foundation-palette, success);
 }
 
 .static-header {

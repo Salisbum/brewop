@@ -1,13 +1,10 @@
-@import 'settings';
-@import 'foundation';
-
-#new-recipe {
+new-recipe {
   text-align: center;
   padding-top: 1%;
 }
 
 #recipe-list {
-  border: 1px solid $primary;
+  border: 1px solid;
   margin-bottom: 10px;
   padding: 1%;
 }

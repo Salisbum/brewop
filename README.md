@@ -12,7 +12,6 @@ BrewOp is an app for you to manage your homebrewing recipes and help you with th
 
 ## Techstack
 * Ruby on Rails
-* Foundations for CSS/HTML
 * Devise for User management
 * Kaminari for pagination
 
