@@ -14,6 +14,10 @@ gem 'carrierwave', '~> 0.10.0'
 gem 'mini_magick', '~> 4.3'
 gem 'fog'
 gem 'pry-rails'
+gem 'bourbon'
+gem 'neat'
+gem 'bitters'
+gem 'refills'
 
 group :development, :test do
   # gem 'byebug'
